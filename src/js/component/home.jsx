@@ -3,10 +3,37 @@ import React from "react";
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
-//create your first component
+
+const Navbar = () => {
+	return (
+	  <navbar>
+		<ul>
+		  <li>Home</li>
+		  <li>About</li>
+		  <li>Services</li>
+		  <li>Contact</li>
+		</ul>
+	  </navbar>
+	);
+  };
+  const Card = () => {
+	return (
+	  <div className="card">
+		<img src="path/to/image" alt="Card" />
+		<h3>Pu-erh tea </h3>
+		<p>Due to the fermentation process, pu-erh tea has a unique pungent or “funky” taste, but this is mixed with other flavors — such as sweetness, bitterness, and earthiness.</p>
+	  </div>
+	);
+};
+
 const Home = () => {
 	return (
 		<div className="text-center">
+			<Card/>
+			<Card/>
+			<Card/>
+			<Card/>
+
 			<h1 className="text-center mt-5">Hello Rigo!</h1>
 			<p>
 				<img src={rigoImage} />

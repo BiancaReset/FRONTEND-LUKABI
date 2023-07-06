@@ -1,1 +1,5 @@
-console.log("Welcome!")
+import React from 'react';
+
+
+
+export default LandingPage;
