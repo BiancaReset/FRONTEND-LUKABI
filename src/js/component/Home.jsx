@@ -1,9 +1,18 @@
-import React from "react";
+import React from 'react';
+import {createRoot} from 'react-dom/client'
 
+const root = createRoot (document.getElementById ["root]"]);
+root.render[LandingPage];
+ import LandingPage from './LandingPage';
+
+ root.render[]
+
+
+
+}
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-
+import rigoImage from "../../img/rigo-baby.jpg"; 
+import Home from "src/js/component/Home.jsx";   
 const Navbar = () => {
 	return (
 	  <navbar>

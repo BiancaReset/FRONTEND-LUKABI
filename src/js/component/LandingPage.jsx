@@ -1,8 +1,10 @@
+import React from 'react';
+
 const LandingPage = () => {
     return (
       <div>
         <Navbar />
-        <Jumbotron />
+        <Banner />
         <div className="card-container">
           <Card />
           <Card />
@@ -12,3 +14,5 @@ const LandingPage = () => {
       </div>
     );
   };
+
+export default LandingPage
