@@ -1,13 +1,20 @@
 import React from 'react';
 
-const Card = () => {
+const Card = (props) => {
 	return (
-	  <div className="Card">
-		<img src="path/to/image" alt="Card" />
-		<h3>Pu-erh tea </h3>
-		<p>Due to the fermentation process, pu-erh tea has a unique pungent or “funky” taste, but this is mixed with other flavors — such as sweetness, bitterness, and earthiness.</p>
-	  </div>
+		<div className="Card">
+			<img className="card-img-top img-fluid" src={props.img} style={{ width: 200, height: 100 }} alt="Card" />
+			<div className="card-body text-center">
+				<h5 className="card-title h6">{props.titulo}</h5>
+				<p className="card-text small">{props.texto}</p>
+				<div className="text-center d-flex">
+					<div class="p-2">
+						<a href="#" className="btn btn-primary">{props.label}</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	);
-    }
+}
 
 export default Card;
