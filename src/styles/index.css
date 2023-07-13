@@ -1,7 +1,4 @@
 
-.card {
-    margin-right: 10px;
-  }
- .nav-link {
-    display: inline-block
- }
+.card-body{
+   height:150px
+}
