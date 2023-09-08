@@ -1,16 +1,16 @@
 import React from 'react';
 
 const Destacado = (props) => {
-  return (
-    <div className="card">
-      <img className="card-img-top img-fluid" src={props.img} style={{ width: "15%", height: "100px" }} alt="Destacado" />
-      <h5 className="card-header">{props.titulo}</h5>
-      <div className="card-body">
-        <p className="card-text">{props.texto}</p>
-        <a href="#" className="btn btn-warning">{props.boton}</a>
+    return (
+      <div className="contenedor-home">
+        <img src={props.img} alt="Description of the image" className="img-destacado" />
+        <div className="contenido-destacado">
+          <h1>{props.titulo}</h1>
+          <p>{props.texto}</p>
+          <button className="boton-destacado" >{props.label}</button>
+        </div>
       </div>
-    </div>
-  );
-}
-export default Destacado;
+    );
+  };
+  export default Destacado;
 

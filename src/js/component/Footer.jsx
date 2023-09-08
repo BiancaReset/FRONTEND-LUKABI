@@ -1,10 +1,12 @@
 import React from 'react';
 const Footer = (props) => {
     return (
-<div className="Footer mt-5 p-5 bg-dark text-white text-center">
+<nav className="navbar fixed-bottom custom-navbar w-50 p-3 Width 50%">
+  <div className="container-fluid">
     <a className="navbar-brand" href="#">{props.footer}</a>
-
-</div>    );
+  </div>
+</nav>
+    )
 }
-
 export default Footer;
+
