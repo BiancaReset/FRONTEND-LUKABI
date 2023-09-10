@@ -1,10 +1,8 @@
 import React from 'react';
 import NavBar from '../component/NavBar';
-/* import Footer from '../component/Footer';
- */import Destacado from '../component/Destacado';
+import Footer from '../component/Footer';
+import Destacado from '../component/Destacado';
 import Imagehome from '../component/Imagehome';
-/* import Routes from './Routes';
- */
 import colibri from "./../img/colibri.png";
 
 

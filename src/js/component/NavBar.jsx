@@ -1,13 +1,13 @@
 import React from 'react';
-/* import Routes from '.src/Routes'
- */
+import { Link } from 'react-router-dom/client'
+
 
 
 const NavBar = (props) => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div className="container px-5">
-				<a className="navbar-brand" href="#!">{props.webname}
+				<a className="navbar-brand" href="#!">DiabeticLink
 				</a>
 				<button
 					className="navbar-toggler"
@@ -23,8 +23,7 @@ const NavBar = (props) => {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li className="nav-item">
-							<a className="nav-link active" aria-current="page" href="#">{props.quienes}
-							</a>
+							<Link className="nav-link active" aria-current="page" to="/quienessomos">Quiénes Somos</Link>
 						</li>
 						<li className="nav-item">
 							<a className="nav-link" href="#!">{props.foro}
@@ -45,3 +44,5 @@ const NavBar = (props) => {
 	);
 }
 export default NavBar;
+
+
