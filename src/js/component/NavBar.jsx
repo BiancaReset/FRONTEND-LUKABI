@@ -1,4 +1,7 @@
 import React from 'react';
+/* import Routes from '.src/Routes'
+ */
+
 
 const NavBar = (props) => {
 	return (
@@ -20,7 +23,7 @@ const NavBar = (props) => {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li className="nav-item">
-							<a className="nav-link active" aria-current="page" href="#!">{props.quienes}
+							<a className="nav-link active" aria-current="page" href="#">{props.quienes}
 							</a>
 						</li>
 						<li className="nav-item">
