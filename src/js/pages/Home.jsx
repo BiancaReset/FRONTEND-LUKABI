@@ -4,13 +4,14 @@ import Footer from '../component/Footer';
 import Destacado from '../component/Destacado';
 import Imagehome from '../component/Imagehome';
 import colibri from "./../img/colibri.png";
+import Calltoaction from '../component/Calltoaction';
 
 
 
 const Home = () => {
 	return (
 		<>
-			<NavBar webname={"DabeticLink"} quienes={"Quiénes Somos"} foro={"Foro"} marketplace={"Te lo compro/regalo"} registro={"Registro/Login"} />
+			<NavBar />
 			<div className="container px-4 px-lg-5">
 				{/* Heading Row*/}
 				<div className="row gx-4 gx-lg-5 align-items-center my-5">
@@ -28,15 +29,7 @@ const Home = () => {
 						</a>
 					</div>
 				</div>
-				{/* Call to Action*/}
-				<div className="card text-white bg-secondary my-5 py-4 text-center">
-					<div className="card-body">
-						<p className="text-white m-0">
-							This call to action card is a great place to showcase some important
-							information or display a clever tagline!
-						</p>
-					</div>
-				</div>
+				<Calltoaction texto={"Tenemos Diabetes. Nos acompaña, no nos detiene. - Chris Olsen."} />
 				{/* Content Row*/}
 				<div className="row gx-4 gx-lg-5">
 					<div className="col-md-4 mb-5">
@@ -50,14 +43,7 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-			{/* Footer*/}
-			<footer className="py-5 bg-dark">
-				<div className="container px-4 px-lg-5">
-					<p className="m-0 text-center text-white">
-						Copyright © Your Website 2023
-					</p>
-				</div>
-			</footer>
+			<Footer />
 		</>
 
 	)

@@ -5,10 +5,13 @@ const Destacado = (props) => {
     <div className="card h-100">
       <div className="card-body">
         <h2 className="card-title">{props.titulo}</h2>
-        <p className="card-text">{props.texto}</p>
+        <p className="card-text">{props.texto}
+        </p>
       </div>
       <div className="card-footer">
-        <a className="btn btn-primary btn-sm" href="#!">{props.label}</a>
+        <a className="btn btn-primary btn-sm" href="#!">{props.label}
+          More Info
+        </a>
       </div>
     </div>
   );
