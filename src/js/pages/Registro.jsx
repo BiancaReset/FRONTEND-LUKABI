@@ -1,85 +1,97 @@
 import React from 'react'
+import logo from "../img/logo.jpeg"
 
 const Registro = () => {
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="container">
-                    <a className="navbar-brand" href="#">
-                        Start Bootstrap
-                    </a>
-                    <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span className="navbar-toggler-icon" />
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">
-                                    Home
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    Link
-                                </a>
-                            </li>
-                            <li className="nav-item dropdown">
-                                <a
-                                    className="nav-link dropdown-toggle"
-                                    id="navbarDropdown"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    Dropdown
-                                </a>
-                                <ul
-                                    className="dropdown-menu dropdown-menu-end"
-                                    aria-labelledby="navbarDropdown"
-                                >
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            Action
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            Another action
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <hr className="dropdown-divider" />
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            Something else here
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            {/* Page content*/}
             <div className="container">
-                <div className="text-center mt-5">
-                    <h1>A Bootstrap 5 Starter Template</h1>
-                    <p className="lead">
-                        A complete project boilerplate built with Bootstrap
-                    </p>
-                    <p>Bootstrap v5.2.3</p>
-                </div>
+                <main>
+                    <div className="py-5 text-center">
+                        <img
+                            className="d-block mx-auto mb-4"
+                            src={logo}
+                            alt=""
+                            width={72}
+                            height={57}
+                        />
+                        <h2>Formulario de Registro</h2>
+                    </div>
+                    <div className="row g-5">
+                        <div className="col-md-5 col-lg-4 order-md-last">
+                        </div>
+                        <div className="col-md-7 col-lg-8">
+                            <form className="needs-validation" noValidate="">
+                                <div className="row g-3">
+                                    <label htmlFor="firstName" className="form-label">
+                                        Nombre
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="firstName"
+                                        placeholder=""
+                                        defaultValue=""
+                                        required=""
+                                    />
+                                    <div className="invalid-feedback">
+                                        Nombre válido requerido
+                                    </div>
+                                </div>
+                                <div className="col-sm-6">
+                                    <label htmlFor="lastName" className="form-label">
+                                        Apellido
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="lastName"
+                                        placeholder=""
+                                        defaultValue=""
+                                        required=""
+                                    />
+                                    <div className="invalid-feedback">
+                                        Apellido válido requerido
+                                    </div>
+                                </div>
+                                <div className="col-12">
+                                    <label htmlFor="username" className="form-label">
+                                        Nombre de usuario
+                                    </label>
+                                    <div className="input-group has-validation">
+                                        <span className="input-group-text">@</span>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="username"
+                                            placeholder="Nombre de usuario"
+                                            required=""
+                                        />
+                                        <div className="invalid-feedback">
+                                            Nombre de usuario requerido
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-12">
+                                    <label htmlFor="email" className="form-label">
+                                        Correo electrónico <span className="text-muted">(Optional)</span>
+                                    </label>
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="email"
+                                        placeholder="tu@ejemplo.com"
+                                    />
+                                    <div className="invalid-feedback">
+                                        Correo electrónico válido requerido
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </main>
             </div>
+
         </>
 
     )

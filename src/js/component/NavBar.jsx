@@ -33,7 +33,10 @@ function NavBar() {
 							<Link className="nav-link" to="/cambioregalo">Te lo Cambio/Regalo</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to="/registro">Registro/Login</Link>
+							<Link className="nav-link" to="/registro">Registro</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="/login">Login</Link>
 						</li>
 					</ul>
 				</div>
