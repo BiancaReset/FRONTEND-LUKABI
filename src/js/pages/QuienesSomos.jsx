@@ -3,90 +3,145 @@ import NavBar from '../component/NavBar';
 const QuienesSomos = () => {
     return (
         <>
-            <meta charSet="utf-8" />
-            <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1, shrink-to-fit=no"
-            />
-            <meta name="description" content="" />
-            <meta name="author" content="" />
-            <title>Quiénes Somos</title>
-            <NavBar webname={"DabeticLink"} quienes={"Quiénes Somos"} foro={"Foro"} marketplace={"Te lo compro/regalo"} registro={"Registro/Login"} />
-            {/* Header - set the background image for the header in the line below*/}
-            <header
-                className="py-5 bg-image-full"
-                style={{
-                    backgroundImage: 'url("https://source.unsplash.com/wfh8dDlNFOk/1600x900")'
-                }}
-            >
-                <div className="text-center my-5">
-                    <img
-                        className="img-fluid rounded-circle mb-4"
-                        src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg"
-                        alt="..."
-                    />
-                    <h1 className="text-white fs-3 fw-bolder">Full Width Pics</h1>
-                    <p className="text-white-50 mb-0">Landing Page Template</p>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div className="container px-5">
+                    <a className="navbar-brand" href="#!">
+                        Start Bootstrap
+                    </a>
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon" />
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="#!">
+                                    Home
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#!">
+                                    About
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#!">
+                                    Contact
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#!">
+                                    Services
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </header>
-            {/* Content section*/}
-            <section className="py-5">
-                <div className="container my-5">
-                    <div className="row justify-content-center">
-                        <div className="col-lg-6">
-                            <h2>Full Width Backgrounds</h2>
-                            <p className="lead">
-                                A single, lightweight helper class allows you to add engaging, full
-                                width background images to sections of your page.
-                            </p>
-                            <p className="mb-0">
-                                The universe is almost 14 billion years old, and, wow! Life had no
-                                problem starting here on Earth! I think it would be inexcusably
-                                egocentric of us to suggest that we're alone in the universe.
-                            </p>
+            </nav>
+            {/* Page Content*/}
+            <div className="container px-4 px-lg-5">
+                {/* Heading Row*/}
+                <div className="row gx-4 gx-lg-5 align-items-center my-5">
+                    <div className="col-lg-7">
+                        <img
+                            className="img-fluid rounded mb-4 mb-lg-0"
+                            src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg"
+                            alt="..."
+                        />
+                    </div>
+                    <div className="col-lg-5">
+                        <h1 className="font-weight-light">Business Name or Tagline</h1>
+                        <p>
+                            This is a template that is great for small businesses. It doesn't have
+                            too much fancy flare to it, but it makes a great use of the standard
+                            Bootstrap core components. Feel free to use this template for any
+                            project you want!
+                        </p>
+                        <a className="btn btn-primary" href="#!">
+                            Call to Action!
+                        </a>
+                    </div>
+                </div>
+                {/* Call to Action*/}
+                <div className="card text-white bg-secondary my-5 py-4 text-center">
+                    <div className="card-body">
+                        <p className="text-white m-0">
+                            This call to action card is a great place to showcase some important
+                            information or display a clever tagline!
+                        </p>
+                    </div>
+                </div>
+                {/* Content Row*/}
+                <div className="row gx-4 gx-lg-5">
+                    <div className="col-md-4 mb-5">
+                        <div className="card h-100">
+                            <div className="card-body">
+                                <h2 className="card-title">Card One</h2>
+                                <p className="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem
+                                    magni quas ex numquam, maxime minus quam molestias corporis quod,
+                                    ea minima accusamus.
+                                </p>
+                            </div>
+                            <div className="card-footer">
+                                <a className="btn btn-primary btn-sm" href="#!">
+                                    More Info
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4 mb-5">
+                        <div className="card h-100">
+                            <div className="card-body">
+                                <h2 className="card-title">Card Two</h2>
+                                <p className="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+                                    tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem
+                                    sunt quam eaque, vel, non in id dolore voluptates quos eligendi
+                                    labore.
+                                </p>
+                            </div>
+                            <div className="card-footer">
+                                <a className="btn btn-primary btn-sm" href="#!">
+                                    More Info
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4 mb-5">
+                        <div className="card h-100">
+                            <div className="card-body">
+                                <h2 className="card-title">Card Three</h2>
+                                <p className="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem
+                                    magni quas ex numquam, maxime minus quam molestias corporis quod,
+                                    ea minima accusamus.
+                                </p>
+                            </div>
+                            <div className="card-footer">
+                                <a className="btn btn-primary btn-sm" href="#!">
+                                    More Info
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            {/* Image element - set the background image for the header in the line below*/}
-            <div
-                className="py-5 bg-image-full"
-                style={{
-                    backgroundImage: 'url("https://source.unsplash.com/4ulffa6qoKA/1200x800")'
-                }}
-            >
-                {/* Put anything you want here! The spacer below with inline CSS is just for demo purposes!*/}
-                <div style={{ height: "20rem" }} />
             </div>
-            {/* Content section*/}
-            <section className="py-5">
-                <div className="container my-5">
-                    <div className="row justify-content-center">
-                        <div className="col-lg-6">
-                            <h2>Engaging Background Images</h2>
-                            <p className="lead">
-                                The background images used in this template are sourced from
-                                Unsplash and are open source and free to use.
-                            </p>
-                            <p className="mb-0">
-                                I can't tell you how many people say they were turned off from
-                                science because of a science teacher that completely sucked out all
-                                the inspiration and enthusiasm they had for the course.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
             {/* Footer*/}
             <footer className="py-5 bg-dark">
-                <div className="container">
+                <div className="container px-4 px-lg-5">
                     <p className="m-0 text-center text-white">
                         Copyright © Your Website 2023
                     </p>
                 </div>
             </footer>
-            {/* Bootstrap core JS*/}
-            {/* Core theme JS*/}
         </>
     )
 };

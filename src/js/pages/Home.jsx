@@ -11,7 +11,6 @@ import Calltoaction from '../component/Calltoaction';
 const Home = () => {
 	return (
 		<>
-			<NavBar />
 			<div className="container px-4 px-lg-5">
 				{/* Heading Row*/}
 				<div className="row gx-4 gx-lg-5 align-items-center my-5">
@@ -43,7 +42,7 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-			<Footer />
+
 		</>
 
 	)

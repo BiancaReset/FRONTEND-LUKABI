@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom/client'
+import { Link } from 'react-router-dom';
 
 
 
-const NavBar = (props) => {
+function NavBar() {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div className="container px-5">
@@ -26,16 +26,14 @@ const NavBar = (props) => {
 							<Link className="nav-link active" aria-current="page" to="/quienessomos">Quiénes Somos</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#!">{props.foro}
-							</a>
+							<Link className="nav-link" to="/foro">Foro
+							</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#!">{props.marketplace}
-							</a>
+							<Link className="nav-link" to="/cambioregalo">Te lo Cambio/Regalo</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#!">{props.registro}
-							</a>
+							<Link className="nav-link" to="/registro">Registro/Login</Link>
 						</li>
 					</ul>
 				</div>
@@ -43,6 +41,7 @@ const NavBar = (props) => {
 		</nav>
 	);
 }
+
 export default NavBar;
 
 
