@@ -1,6 +1,5 @@
 import React from 'react'
 import logo from "../img/logo.jpeg"
-import "../../styles/login.css"
 
 const Login = () => {
     return (
