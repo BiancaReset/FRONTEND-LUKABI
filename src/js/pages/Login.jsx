@@ -13,7 +13,7 @@ const Login = () => {
                                 src={logo}
                                 alt=""
                                 width={100}
-                                height={70}
+                                height={90}
                             />
                             <h1 className="h3 mb-3 fw-normal">Iniciar sesión</h1>
                             <div className="form-floating">

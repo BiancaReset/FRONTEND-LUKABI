@@ -9,10 +9,10 @@ const Registro = () => {
                     <div className="py-5 text-center">
                         <img
                             className="d-block mx-auto mb-4"
-                            src="/docs/5.2/assets/brand/bootstrap-logo.svg"
+                            src={logo}
                             alt=""
-                            width={72}
-                            height={57}
+                            width={100}
+                            height={90}
                         />
                         <h2>Formulario de Registro</h2>
                         <p className="lead">
@@ -122,154 +122,68 @@ const Registro = () => {
                                         </label>
                                         <select className="form-select" id="state" required="">
                                             <option value="">Seleccionar..</option>
-                                            <option>Región Metropolitana</option>
+                                            <option>Metropolitana de Santiago</option>
+                                            <option> Arica y Parinacota</option>
+                                            <option> Tarapacá</option>
+                                            <option> Antofagasta</option>
+                                            <option> Atacama</option>
+                                            <option> Coquimbo</option>
+                                            <option> Valparaíso</option>
+                                            <option>O'Higgins</option>
+                                            <option> Maule</option>
+                                            <option> Ñuble</option>
+                                            <option> BioBío</option>
+                                            <option> Araucanía</option>
+                                            <option> Los Ríos</option>
+                                            <option> Los Lagos</option>
+                                            <option> Aysén</option>
+                                            <option> Magallanes</option>
                                         </select>
                                         <div className="invalid-feedback">
                                             Por favor seleccionar una región válida
                                         </div>
                                     </div>
-                                    <div className="col-md-3">
-                                    </div>
                                 </div>
                                 <hr className="my-4" />
-                                <div className="form-check">
-                                    <input
-                                        type="checkbox"
-                                        className="form-check-input"
-                                        id="same-address"
-                                    />
-
-                                </div>
-                                <div className="form-check">
-                                    <input
-                                        type="checkbox"
-                                        className="form-check-input"
-                                        id="save-info"
-                                    />
-                                    <label className="form-check-label" htmlFor="save-info">
-                                        Save this information for next time
-                                    </label>
-                                </div>
-                                <hr className="my-4" />
-                                <h4 className="mb-3">Payment</h4>
-                                <div className="my-3">
-                                    <div className="form-check">
-                                        <input
-                                            id="credit"
-                                            name="paymentMethod"
-                                            type="radio"
-                                            className="form-check-input"
-                                            defaultChecked=""
-                                            required=""
-                                        />
-                                        <label className="form-check-label" htmlFor="credit">
-                                            Credit card
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input
-                                            id="debit"
-                                            name="paymentMethod"
-                                            type="radio"
-                                            className="form-check-input"
-                                            required=""
-                                        />
-                                        <label className="form-check-label" htmlFor="debit">
-                                            Debit card
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input
-                                            id="paypal"
-                                            name="paymentMethod"
-                                            type="radio"
-                                            className="form-check-input"
-                                            required=""
-                                        />
-                                        <label className="form-check-label" htmlFor="paypal">
-                                            PayPal
-                                        </label>
-                                    </div>
-                                </div>
                                 <div className="row gy-3">
                                     <div className="col-md-6">
                                         <label htmlFor="cc-name" className="form-label">
-                                            Name on card
+                                            Fecha de nacimiento (dd/mm/aaaa)
                                         </label>
                                         <input
+
                                             type="text"
                                             className="form-control"
                                             id="cc-name"
-                                            placeholder=""
+                                            placeholder="dd/mm/aaaa"
                                             required=""
                                         />
-                                        <small className="text-muted">
-                                            Full name as displayed on card
-                                        </small>
-                                        <div className="invalid-feedback">Name on card is required</div>
+                                        <div className="invalid-feedback">Por favor ingresar fecha de nacimiento válida</div>
                                     </div>
                                     <div className="col-md-6">
-                                        <label htmlFor="cc-number" className="form-label">
-                                            Credit card number
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="cc-number"
-                                            placeholder=""
-                                            required=""
-                                        />
                                         <div className="invalid-feedback">
                                             Credit card number is required
                                         </div>
                                     </div>
                                     <div className="col-md-3">
-                                        <label htmlFor="cc-expiration" className="form-label">
-                                            Expiration
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="cc-expiration"
-                                            placeholder=""
-                                            required=""
-                                        />
                                         <div className="invalid-feedback">Expiration date required</div>
                                     </div>
                                     <div className="col-md-3">
-                                        <label htmlFor="cc-cvv" className="form-label">
-                                            CVV
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="cc-cvv"
-                                            placeholder=""
-                                            required=""
-                                        />
                                         <div className="invalid-feedback">Security code required</div>
                                     </div>
                                 </div>
                                 <hr className="my-4" />
                                 <button className="w-100 btn btn-primary btn-lg" type="submit">
-                                    Continue to checkout
+                                    Confirmar registro
                                 </button>
                             </form>
                         </div>
                     </div>
                 </main>
                 <footer className="my-5 pt-5 text-muted text-center text-small">
-                    <p className="mb-1">© 2017–2022 Company Name</p>
+                    <p className="mb-1">Gracias por ser parte de la comunidad DiabeticLink</p>
                     <ul className="list-inline">
-                        <li className="list-inline-item">
-                            <a href="#">Privacy</a>
-                        </li>
-                        <li className="list-inline-item">
-                            <a href="#">Terms</a>
-                        </li>
-                        <li className="list-inline-item">
-                            <a href="#">Support</a>
-                        </li>
+
                     </ul>
                 </footer>
             </div>
