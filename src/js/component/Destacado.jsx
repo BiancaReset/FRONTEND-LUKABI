@@ -10,7 +10,6 @@ const Destacado = (props) => {
       </div>
       <div className="card-footer">
         <a className="btn btn-primary btn-sm" href="#!">{props.label}
-          More Info
         </a>
       </div>
     </div>
