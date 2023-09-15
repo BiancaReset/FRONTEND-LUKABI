@@ -116,7 +116,6 @@ const Registro = () => {
                                             Password
                                         </label>
                                         <div className="input-group has-validation">
-                                            <span className="input-group-text"></span>
                                             <input
                                                 type="password"
                                                 className="form-control"
