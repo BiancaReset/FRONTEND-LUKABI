@@ -61,7 +61,7 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            id="name"
+                                            name="name"
                                             placeholder="Nombre"
                                             value={values.name}
                                             required=""
@@ -79,7 +79,7 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            id="lastName"
+                                            name="lastName"
                                             placeholder="Apellido"
                                             value={values.lastName}
                                             required=""
@@ -98,7 +98,7 @@ const Registro = () => {
                                             <input
                                                 type="text"
                                                 className="form-control"
-                                                id="username"
+                                                name="username"
                                                 placeholder="Correo electrónico"
                                                 required=""
                                                 onChange={handleInputChange}
@@ -119,7 +119,7 @@ const Registro = () => {
                                             <input
                                                 type="password"
                                                 className="form-control"
-                                                id="password"
+                                                name="password"
                                                 placeholder="Password"
                                                 required=""
                                                 onChange={handleInputChange}
@@ -142,7 +142,7 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            id="address"
+                                            name="address"
                                             placeholder="Avenida 123"
                                             required=""
                                             value={values.address}
@@ -160,7 +160,7 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            id="address2"
+                                            name="address2"
                                             value={values.address2}
                                             placeholder="Departamento o casa Nº"
                                             onChange={handleInputChange}
@@ -183,7 +183,7 @@ const Registro = () => {
                                         <label htmlFor="region" className="form-label">
                                             Región
                                         </label>
-                                        <select className="form-select" id="region" required="" value={values.region}>                                           <option value="">Seleccionar..</option>
+                                        <select className="form-select" id="region" required="" value={values.region} onChange={handleInputChange}>                                           <option value="">Seleccionar..</option>
                                             <option>Metropolitana de Santiago</option>
                                             <option> Arica y Parinacota</option>
                                             <option> Tarapacá</option>
@@ -216,7 +216,7 @@ const Registro = () => {
 
                                             type="date"
                                             className="form-control"
-                                            id="fechanac"
+                                            name="fechanac"
                                             placeholder="dd/mm/aaaa"
                                             required=""
                                             value={values.fechanac}
@@ -228,7 +228,7 @@ const Registro = () => {
 
                                 </div>
                                 <hr className="my-4" />
-                                <button className="w-100 btn btn-primary btn-lg" type="submit">
+                                <button className="w-100 btn btn-primary btn-lg" type="submit" >
                                     Confirmar registro
                                 </button>
                             </form>
