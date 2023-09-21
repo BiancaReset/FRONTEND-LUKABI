@@ -20,6 +20,35 @@ const Login = () => {
         console.log(values);
     };
 
+    const login = async (credenciales) => {
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/login', {
+                method: 'POST',
+                body: JSON.stringify(credenciales),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            const data = await response.json();
+            console.log(data);
+
+            if (data.fail) {
+                alert(data.fail);
+            } else {
+                alert(data.success)
+                setCurrentUser(data)
+                setUsername("")
+                setPassword("")
+
+                localStorage.setItem("currentUser", JSON.stringify(data));
+            }
+
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
     return (
         <div className="container">
             <div className="text-center mt-5">
