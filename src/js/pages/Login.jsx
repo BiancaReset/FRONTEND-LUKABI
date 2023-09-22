@@ -1,88 +1,81 @@
-import React from 'react'
+import React, { useState } from 'react';
+import logo from '../img/logo.jpeg';
 
 const Login = () => {
-    return (
-        <>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="container">
-                    <a className="navbar-brand" href="#">
-                        Start Bootstrap
-                    </a>
-                    <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span className="navbar-toggler-icon" />
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">
-                                    Home
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    Link
-                                </a>
-                            </li>
-                            <li className="nav-item dropdown">
-                                <a
-                                    className="nav-link dropdown-toggle"
-                                    id="navbarDropdown"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    Dropdown
-                                </a>
-                                <ul
-                                    className="dropdown-menu dropdown-menu-end"
-                                    aria-labelledby="navbarDropdown"
-                                >
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            Action
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            Another action
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <hr className="dropdown-divider" />
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            Something else here
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            {/* Page content*/}
-            <div className="container">
-                <div className="text-center mt-5">
-                    <h1>A Bootstrap 5 Starter Template</h1>
-                    <p className="lead">
-                        Aquí va formulario login
-                    </p>
-                    <p>Bootstrap v5.2.3</p>
-                </div>
-            </div>
-        </>
+    const [values, setValues] = useState({
+        username: '',
+        password: '',
+    });
 
-    )
-}
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setValues({
+            ...values,
+            [name]: value,
+        });
+    };
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        console.log(values);
+    };
+
+    return (
+        <div className="container">
+            <div className="text-center mt-5">
+                <main className="form-signin w-100 m-auto">
+                    <form onSubmit={handleLogin}>
+                        <img
+                            className="mb-4"
+                            src={logo}
+                            alt=""
+                            width={100}
+                            height={90}
+                        />
+                        <h1 className="h3 mb-3 fw-normal">Iniciar sesión</h1>
+                        <div className="form-floating">
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="username"
+                                placeholder="Correo electrónico"
+                                required=""
+                                onChange={handleInputChange}
+                                value={values.username}
+                            />
+                            <label htmlFor="floatingInput">Correo electrónico</label>
+                            <div className="invalid-feedback">
+                                Correo electrónico requerido
+                            </div>
+                        </div>
+                        <div className="form-floating">
+                            <input
+                                type="password"
+                                className="form-control"
+                                name="password"
+                                placeholder="Password"
+                                required=""
+                                onChange={handleInputChange}
+                                value={values.password}
+                            />
+                            <label htmlFor="floatingPassword">Password</label>
+                            <div className="invalid-feedback">
+                                Password requerido
+                            </div>
+                        </div>
+                        <div className="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" defaultValue="remember-me" /> Recordarme
+                            </label>
+                        </div>
+                        <button className="w-100 btn btn-lg btn-primary" type="submit">
+                            Ingresar
+                        </button>
+                    </form>
+                </main>
+            </div>
+        </div>
+    );
+};
 
 export default Login;

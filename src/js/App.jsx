@@ -14,6 +14,7 @@ import QuienesSomos from './pages/QuienesSomos.jsx'
 import Registro from './pages/Registro.jsx'
 import NavBar from './component/NavBar.jsx'
 import Footer from './component/Footer.jsx'
+import { ForoComent } from './component/ForoComent.jsx'
 
 const App = () => {
     return (
@@ -28,6 +29,8 @@ const App = () => {
                     <Route path="/cambioregalo" element={<CambioRegalo />} />
                     <Route path="/eliminarproducto" element={<EliminarProducto />} />
                     <Route path="/foro" element={<Foro />} />
+                    <Route path="/ForoComent" element={<ForoComent />} />
+                    <Route path="/registro" element={<Registro />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/notfound" element={<NotFound />} />
                     <Route path="/noticias" element={<Noticias />} />
