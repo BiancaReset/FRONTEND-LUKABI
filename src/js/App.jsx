@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound.jsx'
 import Noticias from './pages/Noticias.jsx'
 import QuienesSomos from './pages/QuienesSomos.jsx'
 import Registro from './pages/Registro.jsx'
+import Profile from './pages/Profile.jsx'
 import NavBar from './component/NavBar.jsx'
 import Footer from './component/Footer.jsx'
 import { ForoComent } from './component/ForoComent.jsx'
@@ -36,6 +37,9 @@ const App = () => {
                     <Route path="/noticias" element={<Noticias />} />
                     <Route path="/quienessomos" element={<QuienesSomos />} />
                     <Route path="/registro" element={<Registro />} />
+                    <Route path="/profile" element={<Profile />} />
+
+
                 </Routes>
                 <Footer />
             </BrowserRouter>

@@ -17,12 +17,12 @@ const Login = () => {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        console.log(values);
+        login(values);
     };
 
     const login = async (credenciales) => {
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/login', {
+            const response = await fetch('http://127.0.0.1:5001/api/login', {
                 method: 'POST',
                 body: JSON.stringify(credenciales),
                 headers: {
@@ -41,7 +41,7 @@ const Login = () => {
                 setUsername("")
                 setPassword("")
 
-                localStorage.setItem("currentUser", JSON.stringify(data));
+                sessionStorage.setItem("currentUser", JSON.stringify(data));
             }
 
         } catch (error) {
