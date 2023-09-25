@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 
@@ -32,14 +34,33 @@ function NavBar() {
 						<li className="nav-item">
 							<Link className="nav-link" to="/cambioregalo">Te lo Cambio/Regalo</Link>
 						</li>
-						<li className="nav-item">
+						{/* <li className="nav-item">
 							<Link className="nav-link" to="/registro">Registro</Link>
+						</li> */}
+						<li className="nav-item dropdown">
+							<a
+								className="nav-link dropdown-toggle"
+								href="#"
+								role="button"
+								data-bs-toggle="dropdown"
+							>
+								Registro
+							</a>
+							<ul className="dropdown-menu">
+								<li>
+									<Link className="dropdown-item" to="/registropersona">Registro Usuario</Link>
+								</li>
+								<li>
+									<Link className="dropdown-item" to="/registrocomercio">Registro Comercio</Link>
+								</li>
+							</ul>
 						</li>
+
 						<li className="nav-item">
 							<Link className="nav-link" to="/login">Login</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to="/profile">Perfil</Link>
+							<Link className="nav-link" to="/profile">Profile</Link>
 						</li>
 					</ul>
 				</div>
