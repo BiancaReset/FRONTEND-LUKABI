@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-const getState = ({ getStore, getActions, setStore }) => {
-    return {
-        store: {
-            name: 'Test Name'
-        },
-        actions: {
-            greeting: () => {
-                console.log("Test Function")
-            }
-        }
-    }
-}
-
-export default getState;
-=======
 import { json } from "react-router-dom";
 
 const getState = ({ getStore, getActions, setStore }) => {
@@ -70,4 +54,3 @@ const getState = ({ getStore, getActions, setStore }) => {
 };
 222770201;
 export default getState;
->>>>>>> secciónforo
