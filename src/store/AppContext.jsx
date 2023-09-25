@@ -1,5 +1,6 @@
-import { createContext, useEffect, useState } from "react";
-import getState from "./flux";
+import React, { createContext, useEffect, useState } from "react";
+import getState from "./flux.js";
+
 
 export const Context = createContext(null);
 
@@ -17,9 +18,7 @@ const injectContext = PassedComponent => {
         }));
 
         useEffect(() => {
-            // Call actions by default here
-            // state.actions.getSomeData()
-
+            state.actions.getUser()
         }, [])
 
         return (

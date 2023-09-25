@@ -192,7 +192,7 @@ const SoyComercio = () => {
                                 <div className="row gy-3">
                                 </div>
                                 <div class="container mt-5">
-                                    <p>Descripción del negocio</p>
+                                    <p>Breve descripción del negocio</p>
                                     <form>
                                         <div class="mb-3">
                                             <textarea class="form-control" id="description" name="description" rows="4" placeholder="Ingrese la descripción aquí"></textarea>

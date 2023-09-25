@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Destacado = (props) => {
   return (
@@ -9,8 +10,8 @@ const Destacado = (props) => {
         </p>
       </div>
       <div className="card-footer">
-        <a className="btn btn-primary btn-sm" href="#!">{props.label}
-        </a>
+        <Link className="btn btn-primary btn-sm" to={props.link}>{props.label}
+        </Link>
       </div>
     </div>
   );
