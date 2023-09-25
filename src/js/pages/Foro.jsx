@@ -34,7 +34,7 @@ const Foro = () => {
     useEffect(() => {
         try {
 
-            getTemas();
+            // getTemas();
         } catch (error) {
             console.log("error", error);
         }
