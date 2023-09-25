@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 import { createContext, useEffect, useState } from "react";
 import getState from "./flux";
+=======
+import React, { createContext, useEffect, useState } from "react";
+import getState from "./flux.js";
+
+>>>>>>> secciónforo
 
 export const Context = createContext(null);
 
@@ -17,9 +23,13 @@ const injectContext = PassedComponent => {
         }));
 
         useEffect(() => {
+<<<<<<< HEAD
             // Call actions by default here
             // state.actions.getSomeData()
 
+=======
+            state.actions.getUser()
+>>>>>>> secciónforo
         }, [])
 
         return (

@@ -15,7 +15,8 @@ import Registro from './pages/Registro.jsx'
 import Profile from './pages/Profile.jsx'
 import NavBar from './component/NavBar.jsx'
 import Footer from './component/Footer.jsx'
-import { ForoComent } from './component/ForoComent.jsx'
+import { ForoComent } from './pages/ForoComent.jsx'
+import injectContext from '../store/AppContext.jsx'
 
 const App = () => {
     return (
@@ -33,7 +34,7 @@ const App = () => {
                     <Route path="/ForoComent" element={<ForoComent />} />
                     <Route path="/registro" element={<Registro />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/notfound" element={<NotFound />} />
+                    <Route path="*" element={<NotFound />} />
                     <Route path="/noticias" element={<Noticias />} />
                     <Route path="/quienessomos" element={<QuienesSomos />} />
                     <Route path="/registro" element={<Registro />} />
@@ -47,4 +48,4 @@ const App = () => {
     )
 }
 
-export default App;
+export default injectContext(App);

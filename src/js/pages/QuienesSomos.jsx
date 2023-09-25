@@ -6,7 +6,7 @@ const QuienesSomos = () => {
     return (
         <>
             <section id="about">
-                <div className="container px-4">
+                <div className="container px-4 mt-5">
                     <div className="row gx-4 justify-content-center">
                         <div className="col-lg-8">
                             <h4>Quiénes Somos</h4>

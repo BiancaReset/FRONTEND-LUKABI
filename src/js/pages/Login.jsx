@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../img/logo.jpeg';
+import { useNavigate } from "react-router-dom";
+import { Context } from "../../store/AppContext";
 
 const Login = () => {
     const [values, setValues] = useState({
         username: '',
         password: '',
     });
+
+    const { username, password } = values
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -15,39 +19,15 @@ const Login = () => {
         });
     };
 
+    const { actions } = useContext(Context)
+    const navigate = useNavigate()
+
+
     const handleLogin = (event) => {
+        actions.loginRequest(username, password, navigate)
         event.preventDefault();
-        login(values);
+
     };
-
-    const login = async (credenciales) => {
-        try {
-            const response = await fetch('http://127.0.0.1:5001/api/login', {
-                method: 'POST',
-                body: JSON.stringify(credenciales),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-
-            const data = await response.json();
-            console.log(data);
-
-            if (data.fail) {
-                alert(data.fail);
-            } else {
-                alert(data.success)
-                setCurrentUser(data)
-                setUsername("")
-                setPassword("")
-
-                sessionStorage.setItem("currentUser", JSON.stringify(data));
-            }
-
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
 
     return (
         <div className="container">
