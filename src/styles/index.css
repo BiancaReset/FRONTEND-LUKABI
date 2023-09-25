@@ -21,3 +21,83 @@
   .custom-navbar{
     background-color: FFDEAD;
   } */
+
+
+/* Estilos CSS para reducir márgenes y relleno */
+.form-group {
+  margin-bottom: 15px;
+  /* Reduce el espacio entre grupos de campos */
+}
+
+.form-control {
+  margin-bottom: 5px;
+  /* Reduce el espacio entre etiquetas y campos */
+  padding: 5px;
+  /* Reduce el relleno en campos de entrada */
+}
+
+/* Estilos CSS para reducir el tamaño de las etiquetas */
+label {
+  font-size: 14px;
+  /* Tamaño de fuente más pequeño */
+}
+
+/* Estilos CSS para organizar elementos en columnas */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  /* Espacio entre columnas (ajusta según tus necesidades) */
+}
+
+/* Estilos CSS para reducir el tamaño del botón */
+.btn-primary {
+  font-size: 14px;
+  /* Tamaño de fuente más pequeño */
+  padding: 14px 20px;
+  /* Relleno más pequeño */
+}
+
+/* Estilos CSS para reducir el tamaño de los recuadros */
+.form-control {
+  width: 350px;
+  /* Ancho más pequeño para los campos de entrada */
+  height: 50px;
+  /* Altura más pequeña para los campos de entrada */
+  font-size: 14px;
+  /* Tamaño de fuente más pequeño */
+}
+
+/* Estilos CSS para reducir el tamaño de las etiquetas */
+label {
+  font-size: 14px;
+  /* Tamaño de fuente más pequeño para las etiquetas */
+}
+
+/* Estilos CSS para separar el footer del formulario */
+footer {
+  margin-top: 150px;
+  /* Ajusta la cantidad de margen según tus necesidades */
+}
+
+/* Estilos CSS para centrar el formulario */
+.centered-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centra horizontalmente */
+  justify-content: center;
+  /* Centra verticalmente */
+  min-height: 100vh;
+  /* Ajusta la altura mínima al 100% del viewport para centrar verticalmente */
+}
+
+/* Estilos CSS para subir el texto del encabezado */
+h2 {
+  margin-bottom: 40px;
+  /* Ajusta el valor según cuánto deseas subir el texto */
+}
+
+body {
+  min-height: 100vh;
+}

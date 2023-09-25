@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Context } from '../../store/AppContext';
 
 
 
 function NavBar() {
+	// Se trae el store y las actions usando el Context 
+	const { store, actions } = useContext(Context)
+	const { user } = store
+
+
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div className="container px-5">
-				<a className="navbar-brand" href="#!">DiabeticLink
-				</a>
+				{/* Se cambia etiqueta <a> por <link> y se redirecciona al Home */}
+				<Link className="navbar-brand" to="/">DiabeticLink
+				</Link>
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -32,11 +39,12 @@ function NavBar() {
 						<li className="nav-item">
 							<Link className="nav-link" to="/cambioregalo">Te lo Cambio/Regalo</Link>
 						</li>
-						<li className="nav-item">
+						{user === null && <li className="nav-item">
 							<Link className="nav-link" to="/registro">Registro</Link>
-						</li>
+						</li>}
 						<li className="nav-item">
-							<Link className="nav-link" to="/login">Login</Link>
+							{/* Se renderiza condicionalmente boton de login, si el usuario tiene datos, se renderiza boton de logout */}
+							{user === null ? <Link className="nav-link" to="/login">Login</Link> : <Link className="nav-link" onClick={() => actions.logout()} >Logout</Link>}
 						</li>
 					</ul>
 				</div>
