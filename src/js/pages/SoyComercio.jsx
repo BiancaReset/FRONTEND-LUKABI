@@ -42,7 +42,7 @@ const SoyComercio = () => {
                             width={100}
                             height={90}
                         />
-                        <h2>Formulario de Registro</h2>
+                        <h2>Formulario de Registro Comercio</h2>
                         <p className="lead">
                             Ingresa tus datos para registarte en DiabeticLink
                         </p>
@@ -198,6 +198,20 @@ const SoyComercio = () => {
                                             <textarea class="form-control" id="description" name="description" rows="4" placeholder="Ingrese la descripción aquí"></textarea>
                                         </div>
                                     </form>
+                                </div>
+                                <div className="col-12">
+                                    <label htmlFor="address2" className="form-label">
+                                        Sitio Web <span className="text-muted">(Opcional)</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="website"
+                                        value={values.website}
+                                        placeholder="Ingrese la url de su negocio"
+                                        onChange={handleInputChange}
+
+                                    />
                                 </div>
                                 <hr className="my-4" />
 

@@ -42,7 +42,7 @@ const Registro = () => {
                             width={100}
                             height={90}
                         />
-                        <h2>Formulario de Registro</h2>
+                        <h2>Formulario de Registro Usuario</h2>
                         <p className="lead">
                             Ingresa tus datos para registarte en DiabeticLink
                         </p>
@@ -171,7 +171,7 @@ const Registro = () => {
                                         <label htmlFor="country" className="form-label">
                                             País
                                         </label>
-                                        <select className="form-select" id="country" required="" value={values.pais} onChange={handleInputChange} >
+                                        <select className="form-select" name="country" required="" value={values.pais} onChange={handleInputChange} >
                                             <option value="">Seleccionar...</option>
                                             <option>Chile</option>
                                         </select>
@@ -183,23 +183,23 @@ const Registro = () => {
                                         <label htmlFor="region" className="form-label">
                                             Región
                                         </label>
-                                        <select className="form-select" id="region" required="" value={values.region} onChange={handleInputChange}>                                           <option value="">Seleccionar..</option>
-                                            <option>Metropolitana de Santiago</option>
-                                            <option> Arica y Parinacota</option>
-                                            <option> Tarapacá</option>
-                                            <option> Antofagasta</option>
-                                            <option> Atacama</option>
-                                            <option> Coquimbo</option>
-                                            <option> Valparaíso</option>
-                                            <option>O'Higgins</option>
-                                            <option> Maule</option>
-                                            <option> Ñuble</option>
-                                            <option> BioBío</option>
-                                            <option> Araucanía</option>
-                                            <option> Los Ríos</option>
-                                            <option> Los Lagos</option>
-                                            <option> Aysén</option>
-                                            <option> Magallanes</option>
+                                        <select className="form-select" name="region" required="" value={values.region} onChange={handleInputChange}>                                           <option value="">Seleccionar..</option>
+                                            <option value="Metropolitana de Santiago">Metropolitana de Santiago</option>
+                                            <option value="Arica y Parinacota">Arica y Parinacota</option>
+                                            <option value="Tarapacá">Tarapacá</option>
+                                            <option value="Antofagasta">Antofagasta</option>
+                                            <option value="Atacama">Atacama</option>
+                                            <option value="Coquimbo">Coquimbo</option>
+                                            <option value="Valparaíso">Valparaíso</option>
+                                            <option value="O'Higgins">O'Higgins</option>
+                                            <option value="Maule">Maule</option>
+                                            <option value="Ñuble">Ñuble</option>
+                                            <option value="BioBío">BioBío</option>
+                                            <option value="Araucanía">Araucanía</option>
+                                            <option value="Los Ríos">Los Ríos</option>
+                                            <option value="Los Lagos">Los Lagos</option>
+                                            <option value="Aysén">Aysén</option>
+                                            <option value="Magallanes">Magallanes</option>
                                         </select>
                                         <div className="invalid-feedback">
                                             Por favor seleccionar una región válida
@@ -228,7 +228,7 @@ const Registro = () => {
 
                                 </div>
                                 <hr className="my-4" />
-                                <button className="w-100 btn btn-primary btn-lg" type="submit" >
+                                <button className="w-40 btn btn-primary btn-lg" type="submit" >
                                     Confirmar registro
                                 </button>
                             </form>

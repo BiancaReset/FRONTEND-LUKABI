@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Destacado from '../component/Destacado';
 import Imagehome from '../component/Imagehome';
 import colibri from "./../img/colibri.png";
@@ -6,10 +7,7 @@ import Calltoaction from '../component/Calltoaction';
 
 
 
-
-
 const Home = () => {
-
 	return (
 		<>
 			<div className="container px-4 px-lg-5">
@@ -20,11 +18,12 @@ const Home = () => {
 						/>
 					</div>
 					<div className="col-lg-5">
-						<h1 className="font-weight-light">Testimonio</h1>
+						<h2 className="font-weight-light">Testimonio del mes</h2>
 						<p>
-							Quizá poner un testimonio mensual
+							"El mundo de las redes me ha enseñado conceptos que desconocía sobre mi diabetes". - Aida Gámez.
+							Leer entrevista <a href="https://www.makingdiabeteseasier.com/es/consejos-sobre-diabetes/vivir-con-diabetes/conceptos-sobre-diabetes">aquí</a>
 						</p>
-						<a className="btn btn-primary" href="#!">
+						<a className="btn btn-outline-primary" href="#!">
 							Leer más
 						</a>
 					</div>
@@ -33,13 +32,13 @@ const Home = () => {
 				{/* Content Row*/}
 				<div className="row gx-4 gx-lg-5">
 					<div className="col-md-4 mb-5">
-						<Destacado titulo={"Foro"} texto={"Haz preguntas, comparte experiencias y sugerencias. Un espacio para crear comunidad."} label={"Entrar"} link={'/foro'} />
+						<Destacado titulo={"Foro"} texto={"Haz preguntas, comparte experiencias y sugerencias. Un espacio para crear comunidad."} label={<Link to="/foro">Entrar</Link>} />
 					</div>
 					<div className="col-md-4 mb-5">
-						<Destacado link={'/cambioregalo'} titulo={"Te lo cambio. Te lo regalo."} texto={"Un espacio para que puedas intercambiar o regalar insumos. Lo que no necesitas, a alguien le puede servir."} label={"Entrar"} />
+						<Destacado titulo={"Te lo cambio. Te lo regalo."} texto={"Un espacio para que puedas intercambiar o regalar insumos. Lo que no necesitas, a alguien le puede servir."} label={<Link to="/cambioregalo">Entrar</Link>} />
 					</div>
 					<div className="col-md-4 mb-5">
-						<Destacado titulo={"Novedades"} texto={"Nueva pastelería lowcarb llega con los mejores productos"} label={"Más aquí"} />
+						<Destacado titulo={"Nuestros Partners"} texto={"Ingresa aquí para conocer a nuestros partners. Empresas que comercializan productos que seguro te van a interesar."} label={<Link to="/partners">Entrar</Link>} />
 					</div>
 				</div>
 			</div>

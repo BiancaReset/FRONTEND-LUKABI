@@ -16,6 +16,7 @@ import QuienesSomos from './pages/QuienesSomos.jsx'
 import Registro from './pages/Registro.jsx'
 import SoyComercio from './pages/SoyComercio.jsx'
 import Profile from './pages/Profile.jsx'
+import Partners from './pages/Partners.jsx'
 import NavBar from './component/NavBar.jsx'
 import Footer from './component/Footer.jsx'
 import { ForoComent } from './pages/ForoComent.jsx'
@@ -43,6 +44,8 @@ const App = () => {
                     <Route path="/quienessomos" element={<QuienesSomos />} />
                     <Route path="/registro" element={<Registro />} />
                     <Route path="/profile" element={<Profile />} />
+                    <Route path="/partners" element={<Partners />} />
+
 
 
                 </Routes>
