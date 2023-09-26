@@ -3,6 +3,7 @@ import { json } from "react-router-dom";
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      API_URL: "http://127.0.0.1:5000",
       name: "Test Name",
       //objeto con los datos del usuario
       user: null,
@@ -11,17 +12,19 @@ const getState = ({ getStore, getActions, setStore }) => {
     actions: {
       //Función para conectar login con endpoint
       loginRequest: async (mail, pass, navigate) => {
-        const res = await fetch("http://127.0.0.1:5000/api/login", {
+        const {API_URL}= getStore()
+        const res = await fetch(`${API_URL}/api/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            correoelectronico: mail,
+            correo: mail,
             password: pass,
           }),
         });
         const data = await res.json();
+        console.log(data);
         setStore({
           user: data.user,
         });

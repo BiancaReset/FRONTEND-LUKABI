@@ -1,5 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link, Switch } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import Home from './pages/Home.jsx'
 import Admin from './pages/Admin.jsx'
 import AgregarPregunta from './pages/AgregarPregunta.jsx'
@@ -12,6 +14,7 @@ import NotFound from './pages/NotFound.jsx'
 import Noticias from './pages/Noticias.jsx'
 import QuienesSomos from './pages/QuienesSomos.jsx'
 import Registro from './pages/Registro.jsx'
+import SoyComercio from './pages/SoyComercio.jsx'
 import Profile from './pages/Profile.jsx'
 import NavBar from './component/NavBar.jsx'
 import Footer from './component/Footer.jsx'
@@ -32,7 +35,8 @@ const App = () => {
                     <Route path="/eliminarproducto" element={<EliminarProducto />} />
                     <Route path="/foro" element={<Foro />} />
                     <Route path="/ForoComent" element={<ForoComent />} />
-                    <Route path="/registro" element={<Registro />} />
+                    <Route path="/registropersona" element={<Registro />} />
+                    <Route path="/registrocomercio" element={<SoyComercio />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="*" element={<NotFound />} />
                     <Route path="/noticias" element={<Noticias />} />
