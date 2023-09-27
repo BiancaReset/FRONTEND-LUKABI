@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import logo from "../img/logo.jpeg"
+import { Context } from "../../store/AppContext.jsx"
 
 const Registro = () => {
     /* hooks aqui
    funciones fetch metodo post 
    Funcion para dejar formulario en blanco nuevamente   */
+    const { store } = useContext(Context)
     const [values, setValues] = useState({
-        name: "",
-        lastName: "",
-        username: "",
+        nombre: "",
+        apellido: "",
+        correo: "",
         password: "",
-        address: "",
-        address2: "",
-        country: "",
+        direccion: "",
+        direccion2: "",
+        pais: "",
         region: "",
         fechanac: "",
     });
@@ -24,12 +26,28 @@ const Registro = () => {
             [name]: value,
         });
     };
-    const handleRegistro = (event) => {
+    const handleRegistro = async (event) => {
         event.preventDefault();
-        console.log(values);
-    };
+        console.log(JSON.stringify(values));
+        try {
+            const response = await fetch(`${store.API_URL}/api/register`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+            });
 
-
+            if (response.ok) {
+                const data = await response.json();
+                alert("Usuario creado exitosamente");
+            } else {
+                alert("Error al registrar usuario");
+            }
+        } catch (error) {
+            console.error("Error", error);
+        }
+    }
     return (
         <>
             <div className="container">
@@ -61,9 +79,9 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="name"
+                                            name="nombre"
                                             placeholder="Nombre"
-                                            value={values.name}
+                                            value={values.nombre}
                                             required=""
                                             onChange={handleInputChange}
                                         /* value={nombre} */
@@ -79,9 +97,9 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="lastName"
+                                            name="apellido"
                                             placeholder="Apellido"
-                                            value={values.lastName}
+                                            value={values.apellido}
                                             required=""
                                             onChange={handleInputChange}
                                         />
@@ -98,11 +116,11 @@ const Registro = () => {
                                             <input
                                                 type="text"
                                                 className="form-control"
-                                                name="username"
+                                                name="correo"
                                                 placeholder="Correo electrónico"
                                                 required=""
                                                 onChange={handleInputChange}
-                                                value={values.username}
+                                                value={values.correo}
 
                                             />
                                             <div className="invalid-feedback">
@@ -142,10 +160,10 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="address"
+                                            name="dirección"
                                             placeholder="Avenida 123"
                                             required=""
-                                            value={values.address}
+                                            value={values.direccion}
                                             onChange={handleInputChange}
 
                                         />
@@ -160,8 +178,8 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="address2"
-                                            value={values.address2}
+                                            name="dirección2"
+                                            value={values.direccion2}
                                             placeholder="Departamento o casa Nº"
                                             onChange={handleInputChange}
 
@@ -171,7 +189,7 @@ const Registro = () => {
                                         <label htmlFor="country" className="form-label">
                                             País
                                         </label>
-                                        <select className="form-select" name="country" required="" value={values.pais} onChange={handleInputChange} >
+                                        <select className="form-select" name="pais" required="" value={values.pais} onChange={handleInputChange} >
                                             <option value="">Seleccionar...</option>
                                             <option>Chile</option>
                                         </select>
@@ -210,7 +228,7 @@ const Registro = () => {
                                 <div className="row gy-3">
                                     <div className="col-md-6">
                                         <label htmlFor="fechanac" className="form-label">
-                                            Fecha de nacimiento (dd/mm/aaaa)
+                                            Fecha de nacimiento
                                         </label>
                                         <input
 
@@ -246,6 +264,7 @@ const Registro = () => {
         </>
 
     )
-}
+};
+
 
 export default Registro;

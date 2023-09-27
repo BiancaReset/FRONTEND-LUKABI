@@ -14,9 +14,9 @@ import NotFound from './pages/NotFound.jsx'
 import Noticias from './pages/Noticias.jsx'
 import QuienesSomos from './pages/QuienesSomos.jsx'
 import Registro from './pages/Registro.jsx'
-import SoyComercio from './pages/SoyComercio.jsx'
+import RegistroComercio from './pages/RegistroComercio.jsx'
 import Profile from './pages/Profile.jsx'
-import Partners from './pages/Partners.jsx'
+import Comercios from './pages/Comercios.jsx'
 import NavBar from './component/NavBar.jsx'
 import Footer from './component/Footer.jsx'
 import { ForoComent } from './pages/ForoComent.jsx'
@@ -37,14 +37,14 @@ const App = () => {
                     <Route path="/foro" element={<Foro />} />
                     <Route path="/ForoComent" element={<ForoComent />} />
                     <Route path="/registropersona" element={<Registro />} />
-                    <Route path="/registrocomercio" element={<SoyComercio />} />
+                    <Route path="/registrocomercio" element={<RegistroComercio />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="*" element={<NotFound />} />
                     <Route path="/noticias" element={<Noticias />} />
                     <Route path="/quienessomos" element={<QuienesSomos />} />
                     <Route path="/registro" element={<Registro />} />
                     <Route path="/profile" element={<Profile />} />
-                    <Route path="/partners" element={<Partners />} />
+                    <Route path="/comercios" element={<Comercios />} />
 
 
 
