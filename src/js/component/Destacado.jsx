@@ -10,7 +10,7 @@ const Destacado = (props) => {
         </p>
       </div>
       <div className="card-footer">
-        <Link className="btn btn-primary btn-sm" to={props.link}>{props.label}
+        <Link className="btn btn-warning" to={props.link}>{props.label}
         </Link>
       </div>
     </div>

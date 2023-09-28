@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import logo from "../img/logo.jpeg"
+import { Link } from 'react-router-dom';
+
 
 
 const Profile = () => {
@@ -93,7 +95,7 @@ const Profile = () => {
                                         <div className="card-body">
                                             <p className="mb-4">
                                                 <span className="text-primary font-italic me-1">
-                                                    Ingresar al Foro
+                                                    <Link className="nav-link" to="/foro">Ingresar al Foro</Link>
                                                 </span>
                                             </p>
                                         </div>
@@ -104,8 +106,9 @@ const Profile = () => {
                                         <div className="card-body">
                                             <p className="mb-4">
                                                 <span className="text-primary font-italic me-1">
-                                                    Ingresar a Te lo Cambio/Regalo
+                                                    <Link className="nav-link" to="/cambioregalo">Ingresar a Te lo Cambio/Regalo</Link>
                                                 </span>
+                                                <Link className="nav-link" to="/comercios">ver Comercios</Link>
                                             </p>
                                         </div>
                                     </div>
