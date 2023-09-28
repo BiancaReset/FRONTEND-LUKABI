@@ -21,6 +21,7 @@ import Footer from './component/Footer.jsx'
 import { ForoComent } from './pages/ForoComent.jsx'
 import injectContext from '../store/AppContext.jsx'
 
+
 const App = () => {
     return (
         <>
