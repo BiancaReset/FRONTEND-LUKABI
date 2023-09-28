@@ -39,9 +39,6 @@ function NavBar() {
 						<li className="nav-item">
 							<Link className="nav-link" to="/cambioregalo">Te lo Cambio/Regalo</Link>
 						</li>
-						{user === null && <li className="nav-item">
-							<Link className="nav-link" to="/registro">Registro</Link>
-						</li>}
 						<li className="nav-item">
 							{/* Se renderiza condicionalmente boton de login, si el usuario tiene datos, se renderiza boton de logout */}
 							{user === null ? <Link className="nav-link" to="/login">Login</Link> : <Link className="nav-link" onClick={() => actions.logout()} >Logout</Link>}

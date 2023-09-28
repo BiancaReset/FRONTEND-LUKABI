@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import logo from "../img/logo.jpeg"
+import { Context } from "../../store/AppContext.jsx"
 
 const Registro = () => {
-    /* hooks aqui
-   funciones fetch metodo post 
-   Funcion para dejar formulario en blanco nuevamente   */
+
+    const { store } = useContext(Context)
     const [values, setValues] = useState({
-        name: "",
-        lastName: "",
-        username: "",
+        nombre: "",
+        apellido: "",
+        correo: "",
         password: "",
-        address: "",
-        address2: "",
-        country: "",
+        direccion: "",
+        direccion2: "",
+        pais: "",
         region: "",
         fechanac: "",
     });
@@ -24,12 +24,28 @@ const Registro = () => {
             [name]: value,
         });
     };
-    const handleRegistro = (event) => {
+    const handleRegistro = async (event) => {
         event.preventDefault();
-        console.log(values);
-    };
+        console.log(JSON.stringify(values));
+        try {
+            const response = await fetch(`${store.API_URL}/api/register`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+            });
 
-
+            if (response.ok) {
+                const data = await response.json();
+                alert("Usuario creado exitosamente");
+            } else {
+                alert("Error al registrar usuario");
+            }
+        } catch (error) {
+            console.error("Error", error);
+        }
+    }
     return (
         <>
             <div className="container">
@@ -42,7 +58,7 @@ const Registro = () => {
                             width={100}
                             height={90}
                         />
-                        <h2>Formulario de Registro</h2>
+                        <h2>Formulario de Registro Usuario</h2>
                         <p className="lead">
                             Ingresa tus datos para registarte en DiabeticLink
                         </p>
@@ -61,9 +77,9 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="name"
+                                            name="nombre"
                                             placeholder="Nombre"
-                                            value={values.name}
+                                            value={values.nombre}
                                             required=""
                                             onChange={handleInputChange}
                                         /* value={nombre} */
@@ -79,9 +95,9 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="lastName"
+                                            name="apellido"
                                             placeholder="Apellido"
-                                            value={values.lastName}
+                                            value={values.apellido}
                                             required=""
                                             onChange={handleInputChange}
                                         />
@@ -98,11 +114,11 @@ const Registro = () => {
                                             <input
                                                 type="text"
                                                 className="form-control"
-                                                name="username"
+                                                name="correo"
                                                 placeholder="Correo electrónico"
                                                 required=""
                                                 onChange={handleInputChange}
-                                                value={values.username}
+                                                value={values.correo}
 
                                             />
                                             <div className="invalid-feedback">
@@ -142,10 +158,10 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="address"
+                                            name="direccion"
                                             placeholder="Avenida 123"
                                             required=""
-                                            value={values.address}
+                                            value={values.direccion}
                                             onChange={handleInputChange}
 
                                         />
@@ -154,14 +170,14 @@ const Registro = () => {
                                         </div>
                                     </div>
                                     <div className="col-12">
-                                        <label htmlFor="address2" className="form-label">
+                                        <label htmlFor="direccion2" className="form-label">
                                             Depto, casa o pasaje <span className="text-muted">(Opcional)</span>
                                         </label>
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="address2"
-                                            value={values.address2}
+                                            name="dirección2"
+                                            value={values.direccion2}
                                             placeholder="Departamento o casa Nº"
                                             onChange={handleInputChange}
 
@@ -171,7 +187,7 @@ const Registro = () => {
                                         <label htmlFor="country" className="form-label">
                                             País
                                         </label>
-                                        <select className="form-select" id="country" required="" value={values.pais} onChange={handleInputChange} >
+                                        <select className="form-select" name="pais" required="" value={values.pais} onChange={handleInputChange} >
                                             <option value="">Seleccionar...</option>
                                             <option>Chile</option>
                                         </select>
@@ -183,23 +199,23 @@ const Registro = () => {
                                         <label htmlFor="region" className="form-label">
                                             Región
                                         </label>
-                                        <select className="form-select" id="region" required="" value={values.region} onChange={handleInputChange}>                                           <option value="">Seleccionar..</option>
-                                            <option>Metropolitana de Santiago</option>
-                                            <option> Arica y Parinacota</option>
-                                            <option> Tarapacá</option>
-                                            <option> Antofagasta</option>
-                                            <option> Atacama</option>
-                                            <option> Coquimbo</option>
-                                            <option> Valparaíso</option>
-                                            <option>O'Higgins</option>
-                                            <option> Maule</option>
-                                            <option> Ñuble</option>
-                                            <option> BioBío</option>
-                                            <option> Araucanía</option>
-                                            <option> Los Ríos</option>
-                                            <option> Los Lagos</option>
-                                            <option> Aysén</option>
-                                            <option> Magallanes</option>
+                                        <select className="form-select" name="region" required="" value={values.region} onChange={handleInputChange}>                                           <option value="">Seleccionar..</option>
+                                            <option value="Metropolitana de Santiago">Metropolitana de Santiago</option>
+                                            <option value="Arica y Parinacota">Arica y Parinacota</option>
+                                            <option value="Tarapacá">Tarapacá</option>
+                                            <option value="Antofagasta">Antofagasta</option>
+                                            <option value="Atacama">Atacama</option>
+                                            <option value="Coquimbo">Coquimbo</option>
+                                            <option value="Valparaíso">Valparaíso</option>
+                                            <option value="O'Higgins">O'Higgins</option>
+                                            <option value="Maule">Maule</option>
+                                            <option value="Ñuble">Ñuble</option>
+                                            <option value="BioBío">BioBío</option>
+                                            <option value="Araucanía">Araucanía</option>
+                                            <option value="Los Ríos">Los Ríos</option>
+                                            <option value="Los Lagos">Los Lagos</option>
+                                            <option value="Aysén">Aysén</option>
+                                            <option value="Magallanes">Magallanes</option>
                                         </select>
                                         <div className="invalid-feedback">
                                             Por favor seleccionar una región válida
@@ -210,7 +226,7 @@ const Registro = () => {
                                 <div className="row gy-3">
                                     <div className="col-md-6">
                                         <label htmlFor="fechanac" className="form-label">
-                                            Fecha de nacimiento (dd/mm/aaaa)
+                                            Fecha de nacimiento
                                         </label>
                                         <input
 
@@ -228,7 +244,7 @@ const Registro = () => {
 
                                 </div>
                                 <hr className="my-4" />
-                                <button className="w-100 btn btn-primary btn-lg" type="submit" >
+                                <button className="w-40 btn btn-primary btn-lg" type="submit" >
                                     Confirmar registro
                                 </button>
                             </form>
@@ -246,6 +262,7 @@ const Registro = () => {
         </>
 
     )
-}
+};
+
 
 export default Registro;
