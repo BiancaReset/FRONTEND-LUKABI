@@ -150,13 +150,15 @@ export const ForoComent = () => {
                     <Imagehome image={colibri} />
                 </div>
                 <div className="col-8">
+                    <div className="row" style={{ fontWeight: "bold" }}>
+                        <h1>{activePost.titulo}</h1>
+                    </div>
                     <div className="row">
                         publicado por: {activePost.user} Fecha: {activePost.fecha}
+
                     </div>
-                    <div className="row" style={{ fontWeight: "bold" }}>
-                        {activePost.titulo}
-                    </div>
-                    <div className="row">{activePost.comentario}</div>
+
+                    <div className="row"><h3>{activePost.comentario}</h3></div>
 
                     <div className="row">
                         <div className="mb-3 p-0">
