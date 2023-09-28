@@ -3,9 +3,7 @@ import logo from "../img/logo.jpeg"
 import { Context } from "../../store/AppContext.jsx"
 
 const Registro = () => {
-    /* hooks aqui
-   funciones fetch metodo post 
-   Funcion para dejar formulario en blanco nuevamente   */
+
     const { store } = useContext(Context)
     const [values, setValues] = useState({
         nombre: "",
@@ -160,7 +158,7 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="dirección"
+                                            name="direccion"
                                             placeholder="Avenida 123"
                                             required=""
                                             value={values.direccion}
@@ -172,7 +170,7 @@ const Registro = () => {
                                         </div>
                                     </div>
                                     <div className="col-12">
-                                        <label htmlFor="address2" className="form-label">
+                                        <label htmlFor="direccion2" className="form-label">
                                             Depto, casa o pasaje <span className="text-muted">(Opcional)</span>
                                         </label>
                                         <input

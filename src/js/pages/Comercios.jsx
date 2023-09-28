@@ -10,6 +10,8 @@ function Comercios() {
             .then(response => response.json())
             .then(data => {
                 setComercios(data);
+                console.log(data)
+
             })
             .catch(error => {
                 console.error('Error al obtener comercios:', error);
