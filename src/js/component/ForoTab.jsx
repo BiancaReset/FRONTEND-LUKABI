@@ -22,7 +22,8 @@ export const ForoTab = ({ imagen, titulo, fecha, user, comentario, cantidad, id 
                         <div >
                             <Link to="/ForoComent/" onClick={() => actions.setActivePost(post)} ><strong>{titulo}</strong></Link>
                             <div className="row"> <span>{comentario}</span></div>
-                            <div className="row"> <small> publicado por: {user}  Fecha: {fecha} </small></div>
+                            <div className="row"> <small> publicado por: {user}   </small></div>
+                            <div className="row"> <small>   Fecha: {fecha} </small></div>
                         </div>
                         <div className="row mb-2">
                             <div className="col "><FontAwesomeIcon icon={faComment} /> <small>comentarios:{cantidad}</small> </div>
