@@ -1,33 +1,11 @@
 import React, { useState } from 'react';
 
 
-const AgregarProducto = () => {
+const AgregarProducto = ({ handleInputChange, handleSubmit, producto }) => {
     // Define el estado para los campos del formulario
-    const [producto, setProducto] = useState({
-        nombre: '',
-        precio: '',
-        descripcion: '',
-    });
-
-    // Manejar cambios en los campos del formulario
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setProducto({
-            ...producto,
-            [name]: value,
-        });
-    };
-
-    // Manejar el envío del formulario
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Aquí puedes realizar acciones con los datos del formulario, como enviarlos a un servidor o realizar validaciones
-        console.log('Producto enviado:', producto);
-    };
 
     return (
         <div className="container mt-4">
-            <h2>Agregar Producto</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="nombre">Nombre del Producto</label>
@@ -41,13 +19,13 @@ const AgregarProducto = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="precio">Precio</label>
+                    <label htmlFor="direccion">direccion</label>
                     <input
-                        type="number"
+                        type="text"
                         className="form-control"
-                        id="precio"
-                        name="precio"
-                        value={producto.precio}
+                        id="direccion"
+                        name="direccion"
+                        value={producto.direccion}
                         onChange={handleInputChange}
                     />
                 </div>
@@ -61,9 +39,6 @@ const AgregarProducto = () => {
                         onChange={handleInputChange}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">
-                    Agregar Producto
-                </button>
             </form>
         </div>
     );

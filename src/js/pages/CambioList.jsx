@@ -2,10 +2,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShareSquare, faComment, faBookmark, faFlag, faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import { faShareSquare, faComment, faBookmark, faFlag, faCircleUser, faTrashCan, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { Context } from '../../store/AppContext';
 
-const CambioList = ({ imagen, titulo, fecha, user, comentario, cantidad, id }) => {
+const CambioList = ({ imagen, titulo, fecha, user, comentario, cantidad, id, buttonedit, handleDelete }) => {
     const { actions } = useContext(Context);
     const post = { titulo, fecha, user, comentario, id };
 
@@ -14,11 +14,11 @@ const CambioList = ({ imagen, titulo, fecha, user, comentario, cantidad, id }) =
             <div className="card mt-2">
                 <div className="row">
                     <div className="col-2 d-flex justify-content-center align-items-center">
-                        <FontAwesomeIcon icon={faCircleUser} style={{ fontSize: '70px' }} />
+                        <img src={imagen} />
                     </div>
                     <div className="col-10">
                         <div>
-                            <div className="row"> <span>{comentario}</span></div>
+                            <div className="row"> <span>{titulo}</span></div>
                             <div className="row">
                                 <small> publicado por: {user} Fecha: {fecha} </small>
                             </div>
@@ -30,6 +30,12 @@ const CambioList = ({ imagen, titulo, fecha, user, comentario, cantidad, id }) =
                             </div>
                             <div className="col">
                                 <FontAwesomeIcon icon={faShareSquare} /> <small>compartir</small>
+                            </div>
+                            <div className="col">
+                                <FontAwesomeIcon icon={faTrashCan} style={{ cursor: "pointer" }} onClick={handleDelete} /> <small>eliminar</small>
+                            </div>
+                            <div className="col">
+                                {buttonedit}
                             </div>
                         </div>
                     </div>
