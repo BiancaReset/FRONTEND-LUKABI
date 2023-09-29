@@ -3,6 +3,7 @@ import CambioList from './CambioList';
 import AgregarProducto from './AgregarProducto';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShareSquare, faComment, faBookmark, faFlag, faCircleUser, faTrashCan, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
+import Login from './Login';
 
 const productosData = [
     {
@@ -152,7 +153,7 @@ const CambioRegalo = () => {
     };
 
     return (
-        productos.length !== 0 ?
+        productos.length !== 0 && user ?
             <>
                 <div
                     className="modal fade"
@@ -264,7 +265,7 @@ const CambioRegalo = () => {
                             data-bs-target="#exampleModal1" /> <small>editar</small></>}
                     />
                 ))}
-            </> : <div>no hay productos para mostrar</div>
+            </> : <Login />
     );
 };
 
