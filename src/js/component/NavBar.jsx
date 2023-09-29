@@ -43,10 +43,10 @@ function NavBar() {
 							{/* Se renderiza condicionalmente boton de login, si el usuario tiene datos, se renderiza boton de logout */}
 							{user === null ? <Link className="nav-link" to="/login">Login</Link> : <Link className="nav-link" onClick={() => actions.logout()} >Logout</Link>}
 						</li>
-						<li className="nav-item">
+						{user !== null && <li className="nav-item">
 							<Link className="nav-link" to="/profile">Profile</Link>
-						</li>
-						<li className="nav-item dropdown">
+						</li>}
+						{user === null && <li className="nav-item dropdown">
 							<a
 								className="nav-link dropdown-toggle"
 								href="#"
@@ -63,7 +63,7 @@ function NavBar() {
 									<Link className="dropdown-item" to="/registrocomercio">Registro Comercio</Link>
 								</li>
 							</ul>
-						</li>
+						</li>}
 
 					</ul >
 				</div >
