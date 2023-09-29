@@ -12,7 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     actions: {
       //Función para conectar login con endpoint
       loginRequest: async (mail, pass, navigate) => {
-        const {API_URL}= getStore()
+        const { API_URL } = getStore();
         const res = await fetch(`${API_URL}/api/login`, {
           method: "POST",
           headers: {
@@ -25,11 +25,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
         const data = await res.json();
         console.log(data);
-        setStore({
-          user: data.user,
-        });
+        res.ok &&
+          setStore({
+            user: data.user,
+          });
         res.ok && navigate("/");
         res.ok && localStorage.setItem("user", JSON.stringify(data.user));
+        !res.ok && alert("usuario o contraseña incorrecta");
       },
       //funcion para eliminar datos del objeto user (deslogueo)
       logout: () => {

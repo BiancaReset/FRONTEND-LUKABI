@@ -12,7 +12,7 @@ export const ForoComent = () => {
     const [values, setValues] = useState({
         newComment: "",
         editedComment: "",
-    });
+    }); console.log(user)
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -150,20 +150,24 @@ export const ForoComent = () => {
                     <Imagehome image={colibri} />
                 </div>
                 <div className="col-8">
-                    <div className="row" style={{ fontWeight: "bold" }}>
-                        <h1>{activePost.titulo}</h1>
+                    <h1 className="row" style={{ fontWeight: "bold" }}>
+                        {activePost.titulo}</h1>
+
+                    <div className="row">
+                        publicado por: {activePost.user}
+
                     </div>
                     <div className="row">
-                        publicado por: {activePost.user} Fecha: {activePost.fecha}
+                        Fecha: {activePost.fecha}
 
                     </div>
 
-                    <div className="row"><h3>{activePost.comentario}</h3></div>
+                    <h3 className="row">{activePost.comentario}</h3>
 
                     <div className="row">
                         <div className="mb-3 p-0">
-                            <label className="form-label">Agrega tu comentario</label>
-                            <textarea
+
+                            <textarea placeholder="Agrega tu comentario aqui"
                                 onChange={handleInputChange}
                                 value={values.newComment}
                                 name="newComment"
