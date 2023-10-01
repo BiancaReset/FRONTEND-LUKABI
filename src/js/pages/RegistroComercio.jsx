@@ -36,7 +36,7 @@ const Comercio = () => {
                 body: JSON.stringify(values),
             });
 
-
+            
 
             if (response.ok) {
                 const data = await response.json();
