@@ -8,6 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       //objeto con los datos del usuario
       user: null,
       activePost: null,
+      activeProducto: null,
     },
     actions: {
       //Función para conectar login con endpoint
@@ -45,6 +46,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.setItem("post", JSON.stringify(post));
         setStore({
           activePost: post,
+        });
+      },
+
+      setActiveProduct: (product) => {
+        localStorage.setItem("product", JSON.stringify(product));
+        setStore({
+          activePost: product,
         });
       },
 

@@ -1,49 +1,86 @@
 // CambioList.jsx
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShareSquare, faComment, faBookmark, faFlag, faCircleUser, faTrashCan, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
-import { Context } from '../../store/AppContext';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFlag,
+  faTrashCan,
+  faPenToSquare,
+} from "@fortawesome/free-regular-svg-icons";
+import { Context } from "../../store/AppContext";
+import { Tooltip } from "react-tooltip";
 
-const CambioList = ({ imagen, titulo, fecha, user, comentario, cantidad, id, buttonedit, handleDelete }) => {
-    const { actions } = useContext(Context);
-    const post = { titulo, fecha, user, comentario, id };
+const CambioList = ({
+  imagen,
+  titulo,
+  fecha,
+  user,
+  comentario,
+  id,
+  onDeleteClick,
+  onEditClick,
+  isUser,
+}) => {
+  const { actions } = useContext(Context);
+  const product = { titulo, fecha, user, comentario, id };
 
-    return (
-        <>
-            <div className="card mt-2">
-                <div className="row">
-                    <div className="col-2 d-flex justify-content-center align-items-center">
-                        <img src={imagen} />
-                    </div>
-                    <div className="col-10">
-                        <div>
-                            <div className="row"> <span>{titulo}</span></div>
-                            <div className="row">
-                                <small> publicado por: {user} Fecha: {fecha} </small>
-                            </div>
-                        </div>
-                        <div className="row mb-2">
-                            <div className="col ">
-                                <FontAwesomeIcon icon={faComment} /> <small>comentarios:{cantidad}</small>{' '}
-                                <h3>{comentario}</h3>
-                            </div>
-                            <div className="col">
-                                <FontAwesomeIcon icon={faShareSquare} /> <small>compartir</small>
-                            </div>
-                            <div className="col">
-                                <FontAwesomeIcon icon={faTrashCan} style={{ cursor: "pointer" }} onClick={handleDelete} /> <small>eliminar</small>
-                            </div>
-                            <div className="col">
-                                {buttonedit}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+  return (
+    <div className="col-md-6 col-lg-4 col-sm-12 mb-4 ">
+      <div className="card px-0 ">
+        <img
+          src="https://placehold.co/600x400"
+          className="card-img-top"
+          alt="..."
+        />
+        <div className="card-body " style={{ height: "150px" }}>
+          <h5 className="card-title text-nowrap text-truncate overflow-hidden">
+            {titulo}
+          </h5>
+
+          <p className="card-text text-secondary text-nowrap text-truncate">
+            {comentario}
+          </p>
+
+          <div className="d-inline">
+            {isUser && (
+              <>
+                <FontAwesomeIcon
+                  style={{ cursor: "pointer" }}
+                  icon={faTrashCan}
+                  data-bs-toggle="modal"
+                  data-bs-target="#DeleteModal"
+                  onClick={onDeleteClick}
+                />
+
+                <FontAwesomeIcon
+                  style={{ cursor: "pointer", marginLeft: "8px" }}
+                  data-bs-toggle="modal"
+                  data-bs-target="#editModal"
+                  onClick={onEditClick}
+                  icon={faPenToSquare}
+                />
+              </>
+            )}
+
+            <FontAwesomeIcon
+              style={{ cursor: "pointer", marginLeft: isUser ? "8px" : "" }}
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              icon={faFlag}
+            />
+          </div>
+
+          <Link
+            to="/detalle"
+            className="btn bg-primary btn-sm text-white float-end"
+            onClick={() => actions.setActiveProduct(product)}
+          >
+            Ver detalle
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default CambioList;
-
