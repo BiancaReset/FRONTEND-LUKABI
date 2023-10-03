@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Destacado from '../component/Destacado';
 import Imagehome from '../component/Imagehome';
 import colibri from "./../img/colibri.png";
 import Calltoaction from '../component/Calltoaction';
+import { Link } from 'react-router-dom';
 
 
 
@@ -38,7 +38,7 @@ const Home = () => {
 						<Destacado titulo={"Te lo cambio. Te lo regalo."} texto={"Un espacio para que puedas intercambiar o regalar insumos. Lo que no necesitas, a alguien le puede servir."} label={<Link to="/cambioregalo">Entrar</Link>} />
 					</div>
 					<div className="col-md-4 mb-5">
-						<Destacado titulo={"Nuestros Partners"} texto={"Ingresa aquí para conocer a nuestros partners. Empresas que comercializan productos que seguro te van a interesar."} label={<Link to="/partners">Entrar</Link>} />
+						<Destacado titulo={"Nuestros Partners"} texto={"Ingresa aquí para conocer a nuestros partners. Empresas que comercializan productos que seguro te van a interesar."} label={<Link to="/comercios">Entrar</Link>} />
 					</div>
 				</div>
 			</div>
