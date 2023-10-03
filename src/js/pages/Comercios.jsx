@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Context } from "../../store/AppContext.jsx"
+import { Link } from 'react-router-dom';
+
 
 function Comercios() {
     const [comercios, setComercios] = useState([]);
@@ -10,7 +12,6 @@ function Comercios() {
             .then(response => response.json())
             .then(data => {
                 setComercios(data);
-                console.log(data)
 
             })
             .catch(error => {

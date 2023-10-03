@@ -26,7 +26,7 @@ const Comercio = () => {
     };
     const handleRegistro = async (event) => {
         event.preventDefault();
-        console.log(JSON.stringify(values));
+
         try {
             const response = await fetch(`${store.API_URL}/api/comercio`, {
                 method: 'POST',
@@ -36,10 +36,19 @@ const Comercio = () => {
                 body: JSON.stringify(values),
             });
 
-
-
             if (response.ok) {
                 const data = await response.json();
+                setValues({
+                    nombre: "",
+                    correo: "",
+                    password: "",
+                    direccion: "",
+                    direccion2: "",
+                    pais: "",
+                    region: "",
+                    website: "",
+                    descripcion: "",
+                })
                 alert("Usuario creado exitosamente");
             } else {
                 alert("Error al registrar usuario");
@@ -49,8 +58,8 @@ const Comercio = () => {
         }
     }
     return (
-        <>
-            <div className="container">
+        <div className='container rounded-3 shadow mt-5 w-50'>
+            <div className="mx-auto">
                 <main>
                     <div className="py-5 text-center">
                         <img
@@ -65,14 +74,14 @@ const Comercio = () => {
                             Ingresa tus datos para registarte en DiabeticLink
                         </p>
                     </div>
-                    <div className="row g-5">
-                        <div className="col-md-5 col-lg-4 order-md-last">
+                    <div className="d-flex justify-content-center">
+                        <div className=" order-md-last">
                         </div>
                         <div className="col-md-7 col-lg-8">
                             <h4 className="mb-3">Información de Registro</h4>
-                            <form onSubmit={handleRegistro} className="needs-validation" noValidate="">
-                                <div className="row g-3">
-                                    <div className="col-sm-6">
+                            <form onSubmit={handleRegistro} className="needs-validation container" noValidate="">
+                                <div className="row g-2">
+                                    <div className="col-sm-6 ">
                                         <label htmlFor="name" className="form-label">
                                             Nombre de tu negocio
                                         </label>
@@ -193,7 +202,7 @@ const Comercio = () => {
                                             <option value="Coquimbo">Coquimbo</option>
                                             <option value="Valparaíso">Valparaíso</option>
                                             <option value="O'Higgins">O'Higgins</option>
-                                            <option value="Maule">Maule</option>
+                                            <option option value="Maule" > Maule</option >
                                             <option value="Ñuble">Ñuble</option>
                                             <option value="BioBío">BioBío</option>
                                             <option value="Araucanía">Araucanía</option>
@@ -201,12 +210,12 @@ const Comercio = () => {
                                             <option value="Los Lagos">Los Lagos</option>
                                             <option value="Aysén">Aysén</option>
                                             <option value="Magallanes">Magallanes</option>
-                                        </select>
+                                        </select >
                                         <div className="invalid-feedback">
                                             Por favor seleccionar una región válida
                                         </div>
-                                    </div>
-                                </div>
+                                    </div >
+                                </div >
                                 <hr className="my-4" />
                                 <div className="row gy-3">
                                     <div className="col-md-6">
@@ -252,19 +261,19 @@ const Comercio = () => {
                                 <button className="w-40 btn btn-primary btn-lg" type="submit" >
                                     Confirmar registro
                                 </button>
-                            </form>
-                        </div>
-                    </div>
-                </main>
+                            </form >
+                        </div >
+                    </div >
+                </main >
                 <footer className="my-5 pt-5 text-muted text-center text-small">
                     <p className="mb-1">Gracias por ser parte de la comunidad DiabeticLink</p>
                     <ul className="list-inline">
 
                     </ul>
                 </footer>
-            </div>
+            </div >
 
-        </>
+        </div >
 
     )
 };
