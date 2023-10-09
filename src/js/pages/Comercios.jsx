@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Context } from "../../store/AppContext.jsx"
-import { Link } from 'react-router-dom';
 
 
 function Comercios() {

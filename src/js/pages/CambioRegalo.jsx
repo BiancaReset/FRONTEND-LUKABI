@@ -40,7 +40,7 @@ const CambioRegalo = () => {
   const [idToDelete, setIdToDelete] = useState(null);
   const [idToEdit, setIdToEdit] = useState(null);
   const getProductos = async () => {
-    const res = await fetch("http://127.0.0.1:5000/informacion");
+    const res = await fetch("http://127.0.0.1:5000/post_producto");
     const data = await res.json();
     setProductos(data);
     // console.log(data);
