@@ -14,6 +14,7 @@ const Registro = () => {
     pais: "",
     region: "",
     fechanac: "",
+    role: "user",
   });
 
   const handleInputChange = (event) => {

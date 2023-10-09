@@ -9,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       user: null,
       activePost: null,
       activeProducto: null,
+      token: null,
     },
     actions: {
       //Función para conectar login con endpoint
@@ -29,9 +30,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         res.ok &&
           setStore({
             user: data.user,
+            token: data.access_token,
           });
+        console.log(data);
         res.ok && navigate("/");
         res.ok && localStorage.setItem("user", JSON.stringify(data.user));
+        res.ok &&
+          localStorage.setItem("token", JSON.stringify(data.access_token));
         !res.ok && alert("usuario o contraseña incorrecta");
       },
       //funcion para eliminar datos del objeto user (deslogueo)
@@ -40,6 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({
           user: null,
         });
+        alert("Sesión finalizada");
       },
       // Funcion para setear el post o tema que queremos abrir y comentar
       setActivePost: (post) => {
