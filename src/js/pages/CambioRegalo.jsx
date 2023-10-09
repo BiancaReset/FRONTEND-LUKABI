@@ -287,7 +287,7 @@ const CambioRegalo = () => {
             tooltip="Agregar Producto"
             icon="fas fa-plus"
 
-            // style={{backgroundColor: ''}}
+          // style={{backgroundColor: ''}}
           />
         </div>
       </Container>

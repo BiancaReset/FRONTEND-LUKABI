@@ -48,7 +48,7 @@ const App = () => {
           <Route path="/comercios" element={<Comercios />} />
           <Route path="/detalle" element={<DetallesProducto />} />
         </Routes>
-        <Footer />
+          <Footer />
       </BrowserRouter>
     </>
   );
