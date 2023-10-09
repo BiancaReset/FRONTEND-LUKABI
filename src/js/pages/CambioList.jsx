@@ -25,23 +25,18 @@ const CambioList = ({
   const product = { titulo, fecha, user, comentario, id };
 
   return (
-    <div className="col-md-6 col-lg-4 col-sm-12 mb-4 ">
+    <div className="col-lg-4 col-xl-3 col-sm-12 mb-4 ">
       <div className="card px-0 ">
         <img
           src="https://placehold.co/600x400"
           className="card-img-top"
           alt="..."
         />
-        <div className="card-body " style={{ height: "150px" }}>
+        <div className="card-body ">
           <h5 className="card-title text-nowrap text-truncate overflow-hidden">
             {titulo}
           </h5>
-
-          <p className="card-text text-secondary text-nowrap text-truncate">
-            {comentario}
-          </p>
-
-          <div className="d-inline">
+          <div className="f">
             {isUser && (
               <>
                 <FontAwesomeIcon
@@ -61,18 +56,18 @@ const CambioList = ({
                 />
               </>
             )}
-
             <FontAwesomeIcon
               style={{ cursor: "pointer", marginLeft: isUser ? "8px" : "" }}
               data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
+              data-bs-target="#reportModal"
               icon={faFlag}
+              onClick={onEditClick}
             />
           </div>
 
           <Link
             to="/detalle"
-            className="btn bg-primary btn-sm text-white float-end"
+            className="btn btn-outline-primary btn-sm text-primary  w-100 mt-2"
             onClick={() => actions.setActiveProduct(product)}
           >
             Ver detalle

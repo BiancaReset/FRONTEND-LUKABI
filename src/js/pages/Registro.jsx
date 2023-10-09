@@ -3,8 +3,7 @@ import logo from "../img/logo.jpeg"
 import { Context } from "../../store/AppContext.jsx"
 
 const Registro = () => {
-
-    const { store } = useContext(Context)
+    const { store } = useContext(Context);
     const [values, setValues] = useState({
         nombre: "",
         apellido: "",

@@ -9,21 +9,14 @@ import {
 import { Context } from "../../store/AppContext";
 import { Tooltip } from "react-tooltip";
 
-export const ForoTab = ({
-  titulo,
-  fecha,
-  user,
-  comentario,
-
-  id,
-}) => {
+export const ForoTab = ({ titulo, fecha, user, comentario, id, onCLick }) => {
   const { actions } = useContext(Context);
 
   const post = { titulo, fecha, user, comentario, id };
 
   return (
     <>
-      <div className="  w-75 p-3  mx-auto ">
+      <div className="   p-3  mx-auto ">
         <div className="row">
           <div className="col-12  d-flex align-items-center mb-3 ">
             <FontAwesomeIcon icon={faCircleUser} style={{ fontSize: "35px" }} />{" "}
@@ -58,10 +51,11 @@ export const ForoTab = ({
             </div>
 
             <div
-              data-tooltip-id="report"
-              data-tooltip-content="Reportar"
+              data-bs-toggle="modal"
+              data-bs-target="#reportModal"
               className="ml-3 d-inline"
               style={{ cursor: "pointer" }}
+              onClick={onCLick}
             >
               {/* <Tooltip id="report" /> */}
               <FontAwesomeIcon icon={faFlag} />

@@ -13,6 +13,7 @@ const CambioRegalo = () => {
     nombre: "",
     direccion: "",
     descripcion: "",
+    report: "",
   });
 
   // Manejar cambios en los campos del formulario
@@ -69,6 +70,7 @@ const CambioRegalo = () => {
       nombre: "",
       direccion: "",
       descripcion: "",
+      report: "",
     });
     getProductos();
   };
@@ -88,8 +90,6 @@ const CambioRegalo = () => {
 
     getProductos();
   };
-
-  console.log(productos);
 
   const editProducto = async () => {
     const res = await fetch(
@@ -111,6 +111,36 @@ const CambioRegalo = () => {
       nombre: "",
       direccion: "",
       descripcion: "",
+      report: "",
+    });
+    getProductos();
+  };
+
+  console.log(productos);
+  const reportProduct = async () => {
+    const res = await fetch(
+      `http://127.0.0.1:5000/api/update_producto/${idToEdit}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_id: JSON.parse(user).id,
+          nombre: producto.nombre,
+          direccion: producto.direccion,
+          descripcion: producto.descripcion,
+          activo: false,
+          comentario_rep: producto.report,
+        }),
+      }
+    );
+    res.ok && alert("Tema reportado, sera revisado por el administrador");
+    setProducto({
+      nombre: "",
+      direccion: "",
+      descripcion: "",
+      report: "",
     });
     getProductos();
   };
@@ -196,6 +226,61 @@ const CambioRegalo = () => {
           </div>
         </div>
       </div>
+      <div
+        className="modal fade"
+        id="reportModal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">
+                Motivo del reporte
+              </h1>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className=" d-grid modal-body">
+              <textarea
+                className="mb-2"
+                onChange={handleInputChange}
+                name="report"
+                value={producto.report}
+                type="text"
+              />
+              {producto.report.length !== 0 && producto.report.length < 5 && (
+                <span className="alert alert-danger">
+                  Contenido debe contener al menos 5 caracteres{" "}
+                </span>
+              )}
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn bg-secondary btn-sm text-white"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button
+                type="button"
+                onClick={() => reportProduct()}
+                className="btn bg-primary btn-sm text-white"
+                data-bs-dismiss="modal"
+                disabled={producto.report.length < 5}
+              >
+                Reportar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="w-50 shadow  mx-auto rounded-3 mt-5 d-grid ">
         <img src={colibri} className="card-img-top mb-3 col-12 rounded-top" />
         <h1 className="px-5">Te lo cambio o regalo</h1>
@@ -203,34 +288,49 @@ const CambioRegalo = () => {
           Un espacio para que puedas intercambiar o regalar insumos. Lo que no
           necesitas, a alguien le puede servir.
         </span>
+        <div className="px-5">
+          <button
+            className="btn bg-primary btn-sm text-white mt-3"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            style={{}}
+            type="button"
+          >
+            + Agregar producto
+          </button>
+        </div>
         {productos.length !== 0 ? (
           <div className="row px-5 my-3">
-            {productos.map((producto) => (
-              <CambioList
-                fecha={producto.fecha}
-                key={producto.id} // Add a unique key for each item in the map
-                titulo={producto.nombre}
-                id={producto.id}
-                user={producto.user.nombre}
-                comentario={producto.descripcion}
-                onDeleteClick={() => setIdToDelete(producto.id)}
-                onEditClick={() => {
-                  setIdToEdit(producto.id);
-                  setProducto({
-                    nombre: producto.nombre,
-                    direccion: producto.direccion,
-                    descripcion: producto.descripcion,
-                  });
-                }}
-                isUser={producto.user.id === JSON.parse(user).id}
-              />
-            ))}
+            {productos.map(
+              (producto) =>
+                producto.activo && (
+                  <CambioList
+                    fecha={producto.fecha}
+                    key={producto.id} // Add a unique key for each item in the map
+                    titulo={producto.nombre}
+                    id={producto.id}
+                    user={producto.user.nombre}
+                    comentario={producto.descripcion}
+                    onDeleteClick={() => setIdToDelete(producto.id)}
+                    onEditClick={() => {
+                      setIdToEdit(producto.id);
+                      setProducto({
+                        nombre: producto.nombre,
+                        direccion: producto.direccion,
+                        descripcion: producto.descripcion,
+                        report: "",
+                      });
+                    }}
+                    isUser={
+                      producto.user.id === JSON.parse(user).id ||
+                      JSON.parse(user).role === "admin"
+                    }
+                  />
+                )
+            )}
           </div>
         ) : (
-          <div className="row text-center mt-5 px-5 my-3">
-            {" "}
-            <h3>No hay productos para mostrar</h3>{" "}
-          </div>
+          <div className="text-center my-5">No hay productos para mostrar</div>
         )}
       </div>
 
@@ -275,22 +375,14 @@ const CambioRegalo = () => {
           </div>
         </div>
       </div>
-      <Container>
-        <div
-          style={{ cursor: "pointer" }}
-          className="bg-transparent border-0"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-        >
-          <Button
-            className="bg-primary"
-            tooltip="Agregar Producto"
-            icon="fas fa-plus"
 
+<<<<<<< HEAD
           // style={{backgroundColor: ''}}
           />
         </div>
       </Container>
+=======
+>>>>>>> 0e4e1e5b7266fb9b2f4d76f801c87d56a2bf285b
       {/* Render the new CambioList component */}
     </>
   ) : (

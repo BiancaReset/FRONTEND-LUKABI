@@ -5,6 +5,7 @@ import {
   faTrashCan,
   faPenToSquare,
   faCircleUser,
+  faFlag,
 } from "@fortawesome/free-regular-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +18,7 @@ export const ForoComent = () => {
   const [values, setValues] = useState({
     newComment: "",
     editedComment: "",
+    report: "",
   });
 
   const handleInputChange = (event) => {
@@ -39,6 +41,7 @@ export const ForoComent = () => {
     );
     const data = await res.json();
     setComments(data);
+    console.log(data);
   };
   const deleteComments = async (commentId) => {
     const res = await fetch(
@@ -81,7 +84,7 @@ export const ForoComent = () => {
         }),
       }
     );
-    setValues({ newComment: "", editedComment: "" });
+    setValues({ newComment: "", editedComment: "", report: "" });
     getComments();
   };
 
@@ -97,8 +100,39 @@ export const ForoComent = () => {
         comentario: values.newComment,
       }),
     });
-    setValues({ newComment: "", editedComment: "" });
+    setValues({ newComment: "", editedComment: "", report: "" });
     getComments();
+  };
+
+  const reportPost = async () => {
+    try {
+      const res = await fetch(
+        `http://127.0.0.1:5000/api/update_comment/${commentID}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user_id: user.id,
+            comentario_rep: values.report,
+            foro_id: activePost.id,
+            activo: false,
+          }),
+        }
+      );
+
+      res.ok &&
+        alert("Comentario reportado, sera revisado por el administrador");
+      setValues({
+        newComment: "",
+        editedComment: "",
+        report: "",
+      });
+      getComments();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const isEditBtnDisable = values.editedComment.length >= 2;
@@ -254,6 +288,62 @@ export const ForoComent = () => {
           </div>
         </div>
       </div>
+      <div
+        className="modal fade"
+        id="reportModal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">
+                Motivo del reporte
+              </h1>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className=" d-grid modal-body">
+              <textarea
+                className="mb-2"
+                onChange={handleInputChange}
+                name="report"
+                value={values.report}
+                type="text"
+              />
+              {values.report.length !== 0 && values.report.length < 5 && (
+                <span className="alert alert-danger">
+                  Contenido debe contener al menos 5 caracteres{" "}
+                </span>
+              )}
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn bg-secondary btn-sm text-white"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button
+                type="button"
+                onClick={() => reportPost()}
+                className="btn bg-primary btn-sm text-white"
+                data-bs-dismiss="modal"
+                disabled={values.report.length < 5}
+              >
+                Reportar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="w-50 mt-5 d-flex justify-content-center align-items-center">
         <div className="px-5 mb-3">
           <Link
@@ -305,54 +395,64 @@ export const ForoComent = () => {
         </div>
 
         {comments.length !== 0 ? (
-          comments.map((comment, index) => (
-            <div className="px-5 mt-5" key={comment.id}>
-              <div className="col-12  d-flex align-items-center mb-3 ">
-                <FontAwesomeIcon
-                  icon={faCircleUser}
-                  style={{ fontSize: "35px" }}
-                />{" "}
-                <span className="text-center fw-semibold  mx-2 ">
-                  {" "}
-                  {comment.user.nombre}{" "}
-                </span>
-              </div>
-              <div
-                className="card-body d-flex justify-content-between "
-                key={index}
-              >
-                {comment.comentario}
-                {user.id === comment.user_id && (
-                  <div
-                    style={{ width: "5%" }}
-                    className="d-flex justify-content-between"
-                  >
+          comments.map(
+            (comment, index) =>
+              comment.activo && (
+                <div className="px-5 mt-5" key={comment.id}>
+                  <div className="col-12  d-flex align-items-center mb-3 ">
                     <FontAwesomeIcon
-                      style={{ cursor: "pointer" }}
-                      icon={faTrashCan}
-                      data-bs-toggle="modal"
-                      data-bs-target="#DeleteModal"
-                      onClick={() => setIdToDelete(comment.id)}
-                    />
-                    <FontAwesomeIcon
-                      style={{ cursor: "pointer" }}
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                      onClick={() => {
-                        setCommentID(comment.id);
-                        setValues({
-                          ...values,
-                          editedComment: comment.comentario,
-                        });
-                      }}
-                      icon={faPenToSquare}
-                    />
+                      icon={faCircleUser}
+                      style={{ fontSize: "35px" }}
+                    />{" "}
+                    <span className="text-center fw-semibold  mx-2 ">
+                      {" "}
+                      {comment.user.nombre}{" "}
+                    </span>
                   </div>
-                )}
-              </div>
-              {index !== comments.length - 1 && <hr />}
-            </div>
-          ))
+                  <div
+                    className="card-body d-flex justify-content-between "
+                    key={index}
+                  >
+                    {comment.comentario}
+                    {(user.id === comment.user_id || user.role === "admin") && (
+                      <div className="d-flex justify-content-between">
+                        <FontAwesomeIcon
+                          style={{ cursor: "pointer" }}
+                          icon={faTrashCan}
+                          data-bs-toggle="modal"
+                          data-bs-target="#DeleteModal"
+                          onClick={() => setIdToDelete(comment.id)}
+                        />
+                        <FontAwesomeIcon
+                          style={{ cursor: "pointer" }}
+                          className="mx-1"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
+                          onClick={() => {
+                            setCommentID(comment.id);
+                            setValues({
+                              ...values,
+                              editedComment: comment.comentario,
+                            });
+                          }}
+                          icon={faPenToSquare}
+                        />
+                        <FontAwesomeIcon
+                          style={{ cursor: "pointer" }}
+                          data-bs-toggle="modal"
+                          data-bs-target="#reportModal"
+                          onClick={() => {
+                            setCommentID(comment.id);
+                          }}
+                          icon={faFlag}
+                        />
+                      </div>
+                    )}
+                  </div>
+                  {index !== comments.length - 1 && <hr />}
+                </div>
+              )
+          )
         ) : (
           <div className=" px-5 mt-5">No hay comentarios en este tema</div>
         )}
