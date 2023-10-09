@@ -375,7 +375,6 @@ const CambioRegalo = () => {
           </div>
         </div>
       </div>
-
       {/* Render the new CambioList component */}
     </>
   ) : (

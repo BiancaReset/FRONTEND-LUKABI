@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import logo from "../img/logo.jpeg"
 import { Context } from "../../store/AppContext.jsx"
 
-const Comercio = () => {
+const RegistroComercio = () => {
 
     const { store } = useContext(Context)
     const [values, setValues] = useState({
@@ -13,7 +13,7 @@ const Comercio = () => {
         direccion2: "",
         pais: "",
         region: "",
-        website: "",
+        website: "website",
         descripcion: "",
     });
 
@@ -26,7 +26,7 @@ const Comercio = () => {
     };
     const handleRegistro = async (event) => {
         event.preventDefault();
-
+        console.log(JSON.stringify(values));
         try {
             const response = await fetch(`${store.API_URL}/api/comercio`, {
                 method: 'POST',
@@ -38,17 +38,6 @@ const Comercio = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                setValues({
-                    nombre: "",
-                    correo: "",
-                    password: "",
-                    direccion: "",
-                    direccion2: "",
-                    pais: "",
-                    region: "",
-                    website: "",
-                    descripcion: "",
-                })
                 alert("Usuario creado exitosamente");
             } else {
                 alert("Error al registrar usuario");
@@ -58,8 +47,8 @@ const Comercio = () => {
         }
     }
     return (
-        <div className='container rounded-3 shadow mt-5 w-50'>
-            <div className="mx-auto">
+        <>
+            <div className="container">
                 <main>
                     <div className="py-5 text-center">
                         <img
@@ -69,21 +58,21 @@ const Comercio = () => {
                             width={100}
                             height={90}
                         />
-                        <h2>Formulario de Registro Comercio</h2>
+                        <h2>Formulario de Registro Comercios</h2>
                         <p className="lead">
                             Ingresa tus datos para registarte en DiabeticLink
                         </p>
                     </div>
-                    <div className="d-flex justify-content-center">
-                        <div className=" order-md-last">
+                    <div className="row g-5">
+                        <div className="col-md-5 col-lg-4 order-md-last">
                         </div>
                         <div className="col-md-7 col-lg-8">
                             <h4 className="mb-3">Información de Registro</h4>
-                            <form onSubmit={handleRegistro} className="needs-validation container" noValidate="">
-                                <div className="row g-2">
-                                    <div className="col-sm-6 ">
+                            <form onSubmit={handleRegistro} className="needs-validation" noValidate="">
+                                <div className="row g-3">
+                                    <div className="col-sm-6">
                                         <label htmlFor="name" className="form-label">
-                                            Nombre de tu negocio
+                                            Nombre
                                         </label>
                                         <input
                                             type="text"
@@ -99,24 +88,26 @@ const Comercio = () => {
                                             Nombre válido requerido
                                         </div>
                                     </div>
-                                    <div className="col-sm-6">
-                                        <label htmlFor="username" className="form-label">
-                                            Correo electrónico
-                                        </label>
-                                        <div className="input-group has-validation">
-                                            <span className="input-group-text">@</span>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="correo"
-                                                placeholder="Correo electrónico"
-                                                required=""
-                                                onChange={handleInputChange}
-                                                value={values.correo}
+                                    <div className="row g-3">
+                                        <div className="col-sm-6">
+                                            <label htmlFor="username" className="form-label">
+                                                Correo electrónico
+                                            </label>
+                                            <div className="input-group has-validation">
+                                                <span className="input-group-text">@</span>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="correo"
+                                                    placeholder="Correo electrónico"
+                                                    required=""
+                                                    onChange={handleInputChange}
+                                                    value={values.correo}
 
-                                            />
-                                            <div className="invalid-feedback">
-                                                Correo electrónico requerido
+                                                />
+                                                <div className="invalid-feedback">
+                                                    Correo electrónico requerido
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -146,7 +137,7 @@ const Comercio = () => {
                                     <div className="col-12">
                                     </div>
                                     <div className="col-12">
-                                        <label htmlFor="address" className="form-label">
+                                        <label htmlFor="direccion" className="form-label">
                                             Dirección
                                         </label>
                                         <input
@@ -164,15 +155,16 @@ const Comercio = () => {
                                         </div>
                                     </div>
                                     <div className="col-12">
-                                        <label htmlFor="address2" className="form-label">
-                                            Local Nº <span className="text-muted">(Opcional)</span>
+                                        <label htmlFor="direccion2" className="form-label">
+                                            Local u Oficina Nº <span className="text-muted">(Opcional)</span>
                                         </label>
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="direccion2"
+                                            name="dirección2"
                                             value={values.direccion2}
-                                            placeholder="Local Nº"
+                                            placeholder="Local u Oficina Nº"
+                                            required=""
                                             onChange={handleInputChange}
 
                                         />
@@ -202,7 +194,7 @@ const Comercio = () => {
                                             <option value="Coquimbo">Coquimbo</option>
                                             <option value="Valparaíso">Valparaíso</option>
                                             <option value="O'Higgins">O'Higgins</option>
-                                            <option option value="Maule" > Maule</option >
+                                            <option value="Maule">Maule</option>
                                             <option value="Ñuble">Ñuble</option>
                                             <option value="BioBío">BioBío</option>
                                             <option value="Araucanía">Araucanía</option>
@@ -210,12 +202,12 @@ const Comercio = () => {
                                             <option value="Los Lagos">Los Lagos</option>
                                             <option value="Aysén">Aysén</option>
                                             <option value="Magallanes">Magallanes</option>
-                                        </select >
+                                        </select>
                                         <div className="invalid-feedback">
                                             Por favor seleccionar una región válida
                                         </div>
-                                    </div >
-                                </div >
+                                    </div>
+                                </div>
                                 <hr className="my-4" />
                                 <div className="row gy-3">
                                     <div className="col-md-6">
@@ -227,33 +219,33 @@ const Comercio = () => {
                                             type="text"
                                             className="form-control"
                                             name="website"
-                                            placeholder="Sitio Web"
+                                            placeholder="Ingrese tu sitio web"
                                             required=""
                                             value={values.website}
                                             onChange={handleInputChange}
 
                                         />
-                                        <div className="invalid-feedback">Por favor ingresar Sitio Web válido</div>
+                                        <div className="invalid-feedback">Por favor ingresar un sitio web válido</div>
                                     </div>
 
                                 </div>
                                 <div className="row gy-3">
                                     <div className="col-md-6">
                                         <label htmlFor="descripcion" className="form-label">
-                                            Descripción de tu negocio
+                                            Ingresa una descripción de tu negocio
                                         </label>
                                         <input
 
                                             type="text"
                                             className="form-control"
                                             name="descripcion"
-                                            placeholder="Descripcion"
+                                            placeholder="Ingresa una descripcion de tu negocio"
                                             required=""
                                             value={values.descripcion}
                                             onChange={handleInputChange}
 
                                         />
-                                        <div className="invalid-feedback">Por favor ingresar Descripción válido</div>
+                                        <div className="invalid-feedback">Por favor ingresa una descripcion válida</div>
                                     </div>
 
                                 </div>
@@ -261,22 +253,22 @@ const Comercio = () => {
                                 <button className="w-40 btn btn-primary btn-lg" type="submit" >
                                     Confirmar registro
                                 </button>
-                            </form >
-                        </div >
-                    </div >
-                </main >
+                            </form>
+                        </div>
+                    </div>
+                </main>
                 <footer className="my-5 pt-5 text-muted text-center text-small">
                     <p className="mb-1">Gracias por ser parte de la comunidad DiabeticLink</p>
                     <ul className="list-inline">
 
                     </ul>
                 </footer>
-            </div >
+            </div>
 
-        </div >
+        </>
 
     )
 };
 
 
-export default Comercio;
+export default RegistroComercio;
