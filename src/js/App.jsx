@@ -13,7 +13,7 @@ import Login from "./pages/Login.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Noticias from "./pages/Noticias.jsx";
 import QuienesSomos from "./pages/QuienesSomos.jsx";
-import Registro from "./pages/Registro.jsx";
+import Registro from '../store/AppContext.jsx';
 import RegistroComercio from "./pages/RegistroComercio.jsx";
 import Profile from "./pages/Profile.jsx";
 import Comercios from "./pages/Comercios.jsx";
@@ -48,7 +48,7 @@ const App = () => {
           <Route path="/comercios" element={<Comercios />} />
           <Route path="/detalle" element={<DetallesProducto />} />
         </Routes>
-          <Footer />
+        <Footer />
       </BrowserRouter>
     </>
   );

@@ -375,14 +375,6 @@ const CambioRegalo = () => {
           </div>
         </div>
       </div>
-
-<<<<<<< HEAD
-          // style={{backgroundColor: ''}}
-          />
-        </div>
-      </Container>
-=======
->>>>>>> 0e4e1e5b7266fb9b2f4d76f801c87d56a2bf285b
       {/* Render the new CambioList component */}
     </>
   ) : (
