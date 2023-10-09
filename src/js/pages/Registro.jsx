@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import logo from "../img/logo.jpeg"
 import { Context } from "../../store/AppContext.jsx"
 
-const Registro = () => {
 
-    const { store } = useContext(Context)
+const Registro = () => {
+    const { store } = useContext(Context);
     const [values, setValues] = useState({
         nombre: "",
         apellido: "",
@@ -46,6 +46,9 @@ const Registro = () => {
             console.error("Error", error);
         }
     }
+    const isDisable = values.nombre.length >= 2 && values.apellido.length >= 2 && values.password.length >= 6
+    console.log(isDisable);
+
     return (
         <>
             <div className="container">
@@ -84,9 +87,11 @@ const Registro = () => {
                                             onChange={handleInputChange}
                                         /* value={nombre} */
                                         />
-                                        <div className="invalid-feedback">
-                                            Nombre válido requerido
-                                        </div>
+                                        {values.nombre.length !== 0 && values.nombre.length < 2 && (
+                                            <span className="alert alert-danger">
+                                                Nombre debe contener al menos 2 caracteres{" "}
+                                            </span>
+                                        )}
                                     </div>
                                     <div className="col-sm-6">
                                         <label htmlFor="lastName" className="form-label">
@@ -101,9 +106,11 @@ const Registro = () => {
                                             required=""
                                             onChange={handleInputChange}
                                         />
-                                        <div className="invalid-feedback">
-                                            Apellido válido requerido
-                                        </div>
+                                        {values.apellido.length !== 0 && values.apellido.length < 2 && (
+                                            <span className="alert alert-danger">
+                                                Apellido debe contener al menos 2 caracteres{" "}
+                                            </span>
+                                        )}
                                     </div>
                                     <div className="col-sm-6">
                                         <label htmlFor="username" className="form-label">
@@ -142,9 +149,11 @@ const Registro = () => {
                                                 value={values.password}
 
                                             />
-                                            <div className="invalid-feedback">
-                                                Password requerido
-                                            </div>
+                                            {values.password.length !== 0 && values.password.length < 6 && (
+                                                <span className="alert alert-danger">
+                                                    Password debe contener al menos 6 caracteres{" "}
+                                                </span>
+                                            )}
                                         </div>
                                     </div>
 
