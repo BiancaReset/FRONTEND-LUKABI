@@ -13,7 +13,6 @@ import Login from "./pages/Login.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Noticias from "./pages/Noticias.jsx";
 import QuienesSomos from "./pages/QuienesSomos.jsx";
-import Registro from '../store/AppContext.jsx';
 import RegistroComercio from "./pages/RegistroComercio.jsx";
 import Profile from "./pages/Profile.jsx";
 import Comercios from "./pages/Comercios.jsx";
@@ -22,6 +21,7 @@ import Footer from "./component/Footer.jsx";
 import { ForoComent } from "./pages/ForoComent.jsx";
 import injectContext from "../store/AppContext.jsx";
 import { DetallesProducto } from "./pages/DetallesProducto.jsx";
+import Registro from "./pages/Registro.jsx";
 
 const App = () => {
   return (
