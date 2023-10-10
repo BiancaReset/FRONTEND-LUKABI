@@ -3,7 +3,8 @@ import logo from "../img/logo.jpeg"
 import { Context } from "../../store/AppContext.jsx"
 
 const RegistroComercio = () => {
-
+    const correoRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,16}$/
     const { store } = useContext(Context)
     const [values, setValues] = useState({
         nombre: "",
@@ -84,9 +85,11 @@ const RegistroComercio = () => {
                                             onChange={handleInputChange}
                                         /* value={nombre} */
                                         />
-                                        <div className="invalid-feedback">
-                                            Nombre válido requerido
-                                        </div>
+                                        {values.nombre.length !== 0 && values.nombre.length < 2 && (
+                                            <span className="alert alert-danger" style={{ fontSize: '12px', padding: '4px 8px' }}>
+                                                Nombre debe contener al menos 2 caracteres{" "}
+                                            </span>
+                                        )}
                                     </div>
                                     <div className="row g-3">
                                         <div className="col-sm-6">
@@ -105,9 +108,11 @@ const RegistroComercio = () => {
                                                     value={values.correo}
 
                                                 />
-                                                <div className="invalid-feedback">
-                                                    Correo electrónico requerido
-                                                </div>
+                                                {values.correo.length > 0 && !correoRegex.test(values.correo) && (
+                                                    <span className="alert alert-danger" style={{ fontSize: '12px', padding: '4px 8px' }}>
+                                                        Ingresar correo electrónico válido
+                                                    </span>
+                                                )}
                                             </div>
                                         </div>
                                     </div>
@@ -127,9 +132,11 @@ const RegistroComercio = () => {
                                                 value={values.password}
 
                                             />
-                                            <div className="invalid-feedback">
-                                                Password requerido
-                                            </div>
+                                            {values.password.length !== 0 && values.password.length < 6 && !passwordRegex.test(values.password) && (
+                                                <span className="alert alert-danger" style={{ fontSize: '12px', padding: '4px 8px' }}>
+                                                    El password debe contener 6-10 caracteres, un dígito, una letra minúscula y una mayúscula{" "}
+                                                </span>
+                                            )}
                                         </div>
                                     </div>
 
@@ -161,7 +168,7 @@ const RegistroComercio = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="dirección2"
+                                            name="direccion2"
                                             value={values.direccion2}
                                             placeholder="Local u Oficina Nº"
                                             required=""

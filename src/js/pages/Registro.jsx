@@ -216,7 +216,7 @@ const Registro = () => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="dirección2"
+                                            name="direccion2"
                                             value={values.direccion2}
                                             required=""
                                             placeholder="Departamento o casa Nº"
