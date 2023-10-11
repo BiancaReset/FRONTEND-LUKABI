@@ -140,31 +140,6 @@ const Registro = () => {
                                             )}
                                         </div>
                                     </div>
-
-                                    <div className="col-sm-6">
-                                        <label htmlFor="username" className="form-label">
-                                            Confirmar correo electrónico
-                                        </label>
-                                        <div className="input-group has-validation">
-                                            <span className="input-group-text">@</span>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                name="confirmar_correo"
-                                                placeholder="Confirmar correo electrónico"
-                                                required=""
-                                                onChange={handleInputChange}
-                                                value={values.confirmar_correo}
-
-                                            />
-                                            {values.correo.length > 0 && !correoRegex.test(values.correo) && (
-                                                <span className="alert alert-danger" style={{ fontSize: '12px', padding: '4px 8px' }}>
-                                                    Correo electrónico no coincide
-                                                </span>
-                                            )}
-                                        </div>
-                                    </div>
-
                                     <div className="col-sm-6">
                                         <label htmlFor="password" className="form-label">
                                             Password
