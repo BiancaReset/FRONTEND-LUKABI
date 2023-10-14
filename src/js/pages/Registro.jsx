@@ -4,6 +4,7 @@ import { Context } from "../../store/AppContext.jsx"
 
 
 
+
 const Registro = () => {
     const correoRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,16}$/
